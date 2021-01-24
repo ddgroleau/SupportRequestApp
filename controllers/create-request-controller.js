@@ -29,12 +29,12 @@ exports.createRequest = async (request, response) => {
     };
     try {
     db.query('INSERT into supportrequests SET?', newRequest,(err) => {
-        if (err) throw err;
+        if (err) throw err,
         console.log("Database Updated.")
         });
-        response.redirect("/dashboard");
+        response.render('dashboard.ejs', { createmsg: "Request Submitted Successfully "});
     } catch (err) {
         console.log(err);
-        response.send(err);
+        response.render('dashboard.ejs', { createmsg: `There was an error with your request. Please try again.`});
     };  
 };
