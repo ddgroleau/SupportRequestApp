@@ -12,12 +12,12 @@
     <hr>
     <button id="create">CREATE<br>Request</button>
     <br>
+    <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
     <br>
 
+    <!----- Create Request Form Modal -------------------------->
     <div id="createModal" class="modal">
 
-    <!----- Create Request Form Modal -------------------------->
-    
     <div class="modal-content">
           <span class="close">&times;</span>
           
@@ -85,13 +85,30 @@
             <button form="createform" type="submit" id="submitNewReq">Create!</button>
 
         </div>
+
+    </div>
     <!------- End of Modal --------------------------------->
       
-      </div>
+    <table id="queue">
+          <tr>
+              <th>Request ID</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Creation Date</th>
+              <th>Request Summary</th>
+              <th>Assigned To</th>
+              <th>Created By</th>
+              <th>Status</th>
+              <th>Date Due</th>
+              <th>Comments</th>
+              <th>Tools</th>
+          </tr>
+        </table>
     
-    
+    <br>
     <a href="/logout"><button>Logout</button></a>
 
     <script src="../scripts/create.js"></script>
+    <script src="../scripts/RUD.js"></script>
 </body>
 </html>

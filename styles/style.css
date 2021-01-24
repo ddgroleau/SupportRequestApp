@@ -12,3 +12,17 @@ h1 {
     color: white;
 }
 
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 10px;
+    padding: 2px;
+  }
+
+.deleteButton {
+    background-color: red;
+}
+
+.updateButton {
+    background-color: green;
+}
