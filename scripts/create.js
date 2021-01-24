@@ -1,52 +1,65 @@
-// Global Variables
+// Modal Control 
 const createBtn = document.getElementById("create");
 const createModal = document.getElementById("createModal");
 const span = document.getElementsByClassName("close")[0];
 
-// Event Listeners
 createBtn.addEventListener("click", event => {
     createModal.style.display = "block";
 });
 
-// When the user clicks on <span> (x), close the modal
 span.addEventListener("click", event => {
   createModal.style.display = "none";
 });
 
-// When the user clicks anywhere outside of the modal, close it
 window.addEventListener("click", event => {
   if (event.target == createModal) {
     createModal.style.display = "none";
   }
 });
+// End Modal Control
 
-// Assigns Request ID based on # of requests in the table
-const idCounter = async () => {
-  const request = await fetch("/routes/requests");
-  const response = await request.json();
-  let count = 1;
-  document.getElementById("projectid").style.visibility = "hidden";
-  for (item in response) {
-      count++;
-  }
-  document.getElementById("id").value= count;
-  return count;
-};
-idCounter();
-
-document.getElementById("type").addEventListener("change", async event => {
-    if (document.getElementById("type").value == "Project Sub-Task") {
-        document.getElementById("projectid").style.visibility = "visible";
-        document.getElementById("projectid").value= "";
-        const request = await fetch("/routes/requests");
-        const response = await request.json();
-        let count = 1;
-        for (item in response) {
-        count++; 
-    }
-    document.getElementById("id").value = document.getElementById("projectid").value;
+// Event Listener To Allow User to Input Parent Project for Type: Project Subtask or Assign Request ID
+document.getElementById("type").addEventListener("change", event => {
+  const projectid = document.getElementById('projectid');
+  const id = document.getElementById("id");
+  if (document.getElementById("type").value === 'Project Subtask') {
+    projectid.style.visibility = "visible";
+  } else {
+    // Assigns Request ID based on # of requests in the table
+    const idCounter = async () => {
+      const id = document.getElementById("id");
+      const projectid = document.getElementById('projectid');
+      const request = await fetch("/routes/requests");
+      const response = await request.json();
+      projectid.style.visibility = "hidden";
+      let count = 1000;
+      for (item in response) {
+          count++;
+      };
+      id.value= count + 1;
+      return count;
     };
+    idCounter();
+      };
 });
+
+// Event Lister for Project ID Input
+document.getElementById('projectid').addEventListener("change", async event => {
+const projectid = document.getElementById('projectid').value;
+document.getElementById('id').value = projectid;
+const request = await fetch("/routes/requests");
+const response = await request.json();
+let yourProjectID = [];
+for (item in response) {
+  const idChecker = await response[item].id.includes(projectid);
+  if (idChecker == true) {
+    yourProjectID.push(response[item].id);
+    let projIDToNum = yourProjectID.map(i => parseFloat(i));
+    let lastTask = Math.max(...projIDToNum)
+    document.getElementById('id').value = (lastTask + 0.1).toString();
+  };
+};
+}); 
 
 // Gets Username and Assigns it to "Created-By" Field
 const creator = async () => {
@@ -57,7 +70,7 @@ const creator = async () => {
     return currentUser;
 };
 creator();
-
+// Gets Data
 function todaysDate() {
     const today = new Date();
     const dd = today.getDate();
@@ -73,7 +86,7 @@ function todaysDate() {
     return date;
 }
 todaysDate();
-
+// Gets Users
 const listUsers = async () => {
     const request = await fetch("/routes/users");
     const users = await request.json();

@@ -24,7 +24,19 @@
           <center><P>Create New Support Request</P></center>
           
           <form method="POST" action="createRequest" class="createForm" id="createform">
+            
             <div class="header">
+                <label for="type">Request Type</label>
+                <select type="text" id="type" name="type" value="type">
+                    <option value="default">Choose a Type</option>
+                    <option value="Standard Request">Standard Request</option>
+                    <option value="Project">Project</option>
+                    <option value="Project Subtask">Project Subtask</option>
+                    </select>
+                    <br>
+                    <br>
+                <label for="projectid">Project ID: </label>
+                <input type="text" id="projectid" name="projectid" value="">
             
                 <label for="id">Request ID: </label>
                 <input type="number" id="id" name="id" value="" readonly>
@@ -40,17 +52,7 @@
             
             </div>
 
-            <label for="projectid">Project ID: </label>
-                <input type="text" id="projectid" name="projectid" value="N/A">
-            
-                <br>
-            <label for="type">Request Type</label>
-            <select type="text" id="type" name="type" value="type">
-                <option value="default">Choose a Type</option>
-                <option value="Standard Request">Standard Request</option>
-                <option value="Project">Project</option>
-                <option value="Project Sub-Task">Project Sub-Task</option>
-                </select>
+            <br>
           
             <label for="category">Category</label>
             <select type="text" id="category" name="category" value="category">
@@ -66,10 +68,10 @@
             <br>
             <br>
             <label for="requestsummary">Request Summary</label>
-            <input type="text" id="requestsummary" name="requestsummary" value="some text...">
+            <input type="text" id="requestsummary" name="requestsummary" value="">
             
             <label for="duedate">Date Due</label>
-            <input type="date" id="duedate" name="duedate" value="2021-01-20" min="2021-01-19" max="2099-12-31">
+            <input type="date" id="duedate" name="duedate" value="" min="2021-01-19" max="2099-12-31">
             
             <label for="assignedto">Assign To</label>
             <select type="text" id="assignedto" name="assignedto" value="assignedto"></select>
@@ -78,9 +80,6 @@
 
             <label for="comments">Comments</label><br>
             <textarea type="text" id="comments" name="comments" form="createform"></textarea>
-            <br>
-            <label for="attachment">Upload Attachment(s)</label>
-            <input form="createform" type="file" id="attachment" name="attachment" value="attachment" multiple>
             <br>
             <br>
             <button form="createform" type="submit" id="submitNewReq">Create!</button>

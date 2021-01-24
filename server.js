@@ -35,7 +35,7 @@ const options = {
     user: 'root',
     port: 3306,
     password: '***REMOVED***',
-    database: 'srdb',
+    database: 'supportrequestapp',
     clearExpired: true,
     createDatabaseTable: true,
     charset: 'utf8mb4_bin',
