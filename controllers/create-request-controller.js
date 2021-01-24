@@ -15,7 +15,6 @@ exports.createRequest = async (request, response) => {
     const status = data.status;
     const assignedTo = data.assignedto;
     const createdBy = data.createdby;
-    const attachment = data.attachment;
     const newRequest = {
         id: id,
         type: type,
@@ -27,7 +26,6 @@ exports.createRequest = async (request, response) => {
         status: status,
         assignedto: assignedTo,
         createdby: createdBy,
-        attachment: attachment,
     };
     try {
     db.query('INSERT into supportrequests SET?', newRequest,(err) => {

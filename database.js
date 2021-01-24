@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'AH7my62y2k',
-    database: 'srdb',
+    database: 'supportrequestapp',
     multipleStatements: true,
 });
 
