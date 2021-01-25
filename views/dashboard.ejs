@@ -88,6 +88,33 @@
 
     </div>
     <!------- End of Modal --------------------------------->
+
+
+    <!----- Create Request Form Modal -------------------------->
+    <div id="updateModal" class="modal">
+
+        <div class="modal-content">
+              <span id="saveUpdate" class="close">&times;</span>
+              
+              <center><P>Update Support Request</P></center>
+              
+              <form method="POST" action="updateRequest" class="createForm" id="updateform">
+
+                    <label for="updateid">Request ID: </label>
+                    <input type="number" id="updateid" name="updateid" value="" readonly>
+                    
+              </form>
+    
+                <label for="updatecomments">Comments</label><br>
+                <textarea type="text" id="updatecomments" name="updatecomments" form="updateform"></textarea>
+                <br>
+                <br>
+                <button form="updateform" type="submit" id="updateReq">Save</button>
+    
+            </div>
+    
+        </div>
+        <!------- End of Modal --------------------------------->
       
     <table id="queue">
           <tr>
@@ -109,6 +136,6 @@
     <a href="/logout"><button>Logout</button></a>
 
     <script src="../scripts/create.js"></script>
-    <script src="../scripts/RUD.js"></script>
+    <script src="../scripts/queue.js"></script>
 </body>
 </html>

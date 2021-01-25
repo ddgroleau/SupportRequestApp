@@ -18,7 +18,7 @@ const login= require('./routes/login');
 const dashboard= require('./routes/dashboard');
 const logout= require('./routes/logout');
 const createRequest= require('./routes/create-request');
-const requests= require('./routes/read-request');
+const readRequests= require('./routes/read-request');
 const currentUser= require('./routes/current-user');
 
 // --- EXPRESS SETUP ---
@@ -64,12 +64,13 @@ app.use(session({
 // ROUTES
 app.use("/routes", users);
 app.use("/routes", currentUser);
-app.use("/routes", requests);
+app.use("/routes", readRequests);
 app.use("/", registration);
 app.use("/", login)
 app.use("/", dashboard)
 app.use("/", logout)
 app.use("/", createRequest);
+
 
 
 

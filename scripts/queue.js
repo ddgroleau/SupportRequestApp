@@ -1,4 +1,4 @@
-// Gets the Current User from the Current User Endpoint
+// Gets the current user from the current-user endpoint
 const getUser = async () => {
     const request = await fetch("/routes/currentUser");
     const response = await request.json();
@@ -55,7 +55,7 @@ const generateTable = async () => {
         rejectButton.textContent = "Delete"
         rejectButton.setAttribute("class","rejectButton");
         document.getElementById('queue').append(newRow);
-
+        
         let resolveButton = document.createElement("button")
         resolveButton.id = `resolve${rowID}`;
         resolveButton.textContent = "Complete"
@@ -88,24 +88,45 @@ const toolBox = async () => {
     for (item in response) {
         const assignedToUser = await response[item].assignedto;
         if (assignedToUser === currentUser) {
-            requestIdArray.push(await response[item].id);
+            requestIdArray.push({
+                id: await response[item].id,
+                comments: await response[item].comments,
+            });
         };
     };
    for (item in requestIdArray) {
-       (function (id) {
-            document.getElementById(`update${id}`).addEventListener("click", () => {
+       (function (id,comments) {
+            
+        document.getElementById(`update${id}`).addEventListener("click", async () => {
                 const updateID = id;
-                console.log(updateID);
+                const updateComments = comments;
+                console.log(`sending to update menu ${updateID}...`);
+                document.getElementById("updateModal").style.display = "block";
+                document.getElementById("updateid").value = updateID;
+                document.getElementById("updatecomments").value = updateComments;
             });
-            document.getElementById(`reject${id}`).addEventListener("click", () => {
+            
+        document.getElementById(`reject${id}`).addEventListener("click", () => {
                 const rejectID = id;
-                console.log(rejectID);
+                console.log(`deleting ${rejectID}...`);
              });
-            document.getElementById(`resolve${id}`).addEventListener("click", () => {
+            
+         document.getElementById(`resolve${id}`).addEventListener("click", () => {
                 const resolveID = id;
-                console.log(resolveID);
+                console.log(`updating status of ${resolveID}...`);
             });
-    }(requestIdArray[item]));
+
+            document.getElementById("saveUpdate").addEventListener("click", event => {
+                document.getElementById("updateModal").style.display = "none";
+              });
+
+              window.addEventListener("click", event => {
+                if (event.target == document.getElementById("updateModal")) {
+                    document.getElementById("updateModal").style.display = "none";
+                }
+              });
+
+    }(requestIdArray[item].id,requestIdArray[item].comments));
     };
 };
 toolBox();
