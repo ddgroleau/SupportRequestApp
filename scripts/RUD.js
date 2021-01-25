@@ -1,4 +1,13 @@
-const getRequests = async (currentUser) => {
+// Gets the Current User from the Current User Endpoint
+const getUser = async () => {
+    const request = await fetch("/routes/currentUser");
+    const response = await request.json();
+    const currentUser = response.username;
+    return currentUser;
+};
+// Gets the requests assigned to the current user
+const getRequests = async () => {
+    const currentUser = await getUser();
     const request = await fetch("/routes/requests");
     const response = await request.json();
     const queue = [];
@@ -20,7 +29,11 @@ const getRequests = async (currentUser) => {
             queue.push(userRequest);
         };
     };
-    const generateTable = () => {
+    return queue;
+};
+// Generates a table on the DOM of all the requests assigned to the user
+const generateTable = async () => {
+    const queue = await getRequests();
     if (queue.length > 0) {
     for (row in queue) {
         const newRow = document.createElement("tr")
@@ -36,14 +49,23 @@ const getRequests = async (currentUser) => {
         updateButton.id = `update${rowID}`;
         updateButton.textContent = "Update"
         updateButton.setAttribute("class","updateButton");
-        let deleteButton = document.createElement("button")
-        deleteButton.id = `delete${rowID}`;
-        deleteButton.textContent = "Delete"
-        deleteButton.setAttribute("class","deleteButton");
+        
+        let rejectButton = document.createElement("button")
+        rejectButton.id = `reject${rowID}`;
+        rejectButton.textContent = "Delete"
+        rejectButton.setAttribute("class","rejectButton");
         document.getElementById('queue').append(newRow);
+
+        let resolveButton = document.createElement("button")
+        resolveButton.id = `resolve${rowID}`;
+        resolveButton.textContent = "Complete"
+        resolveButton.setAttribute("class","resolveButton");
+        document.getElementById('queue').append(newRow);
+        
         let tools = document.createElement("td")
-        tools.append(updateButton)
-        tools.append(deleteButton)
+        tools.append(resolveButton);
+        tools.append(updateButton);
+        tools.append(rejectButton);
         newRow.append(tools);
 
     };
@@ -56,18 +78,9 @@ const getRequests = async (currentUser) => {
         document.getElementById('queue').append(newRow);
     };
 };
-generateTable();
-};
-
-const getUser = async () => {
-    const request = await fetch("/routes/currentUser");
-    const response = await request.json();
-    const currentUser = response.username;
-    await getRequests(currentUser);
-    return currentUser;
-};
-
+// Adds event listers to the buttons in the users queue that allow them to peform read, update and delete actions
 const toolBox = async () => {
+    await generateTable();
     const currentUser = await getUser();
     const request = await fetch("/routes/requests");
     const response = await request.json();
@@ -83,11 +96,15 @@ const toolBox = async () => {
             document.getElementById(`update${id}`).addEventListener("click", () => {
                 const updateID = id;
                 console.log(updateID);
-    });
-    document.getElementById(`delete${id}`).addEventListener("click", () => {
-        const deleteID = id;
-        console.log(deleteID);
-});
+            });
+            document.getElementById(`reject${id}`).addEventListener("click", () => {
+                const rejectID = id;
+                console.log(rejectID);
+             });
+            document.getElementById(`resolve${id}`).addEventListener("click", () => {
+                const resolveID = id;
+                console.log(resolveID);
+            });
     }(requestIdArray[item]));
     };
 };

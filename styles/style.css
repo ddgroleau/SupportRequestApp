@@ -19,10 +19,14 @@ table, th, td, tr {
     padding: 2px;
   }
 
-.deleteButton {
+.rejectButton {
     background-color: red;
 }
 
 .updateButton {
+    background-color: yellow;
+}
+
+.resolveButton {
     background-color: green;
 }
