@@ -32,12 +32,12 @@ document.getElementById("type").addEventListener("change", event => {
       const request = await fetch("/routes/requests");
       const response = await request.json();
       projectid.style.visibility = "hidden";
-      let count = 1000;
-      for (item in response) {
-          count++;
-      };
-      id.value= count + 1;
-      return count;
+      if (response.length > 0) {
+      let lastID = parseFloat(response[response.length-1].id);
+      id.value = lastID + 1
+      } else {
+        id.value = 1001;
+      }
     };
     idCounter();
       };
@@ -51,7 +51,7 @@ const request = await fetch("/routes/requests");
 const response = await request.json();
 let yourProjectID = [];
 for (item in response) {
-  const idChecker = await response[item].id.includes(projectid);
+  const idChecker = await response[item].id.toString().includes(projectid);
   if (idChecker == true) {
     yourProjectID.push(response[item].id);
     let projIDToNum = yourProjectID.map(i => parseFloat(i));

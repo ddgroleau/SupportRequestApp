@@ -13,7 +13,8 @@ const getRequests = async () => {
     const queue = [];
     for (item in response) {
         const assignedToUser = await response[item].assignedto;
-        if (assignedToUser === currentUser) {
+        const lineStatus = await response[item].status;
+        if (assignedToUser === currentUser && lineStatus === "Pending") {
             let userRequest = {
                 id: response[item].id,
                 type: response[item].type,
@@ -73,7 +74,7 @@ const generateTable = async () => {
         const newRow = document.createElement("tr")
         const singleCell = document.createElement("td")
         singleCell.textContent = "Your Queue is empty";
-        singleCell.colSpan = 10;
+        singleCell.colSpan = 11;
         newRow.append(singleCell);
         document.getElementById('queue').append(newRow);
     };
@@ -87,15 +88,17 @@ const toolBox = async () => {
     let requestIdArray = [];
     for (item in response) {
         const assignedToUser = await response[item].assignedto;
-        if (assignedToUser === currentUser) {
+        const status = await response[item].status;
+        if (assignedToUser === currentUser && status === "Pending") {
             requestIdArray.push({
                 id: await response[item].id,
                 comments: await response[item].comments,
             });
         };
     };
-   for (item in requestIdArray) {
-       (function (id,comments) {
+   for (item in requestIdArray) { 
+
+    (function (id,comments) {
         // Updates Comments in your queue
         document.getElementById(`update${id}`).addEventListener("click", async () => {
                 const updateID = id;
@@ -122,9 +125,20 @@ const toolBox = async () => {
                 }
              });
             
-         document.getElementById(`resolve${id}`).addEventListener("click", () => {
-                const resolveID = id;
-                console.log(`updating status of ${resolveID}...`);
+         document.getElementById(`resolve${id}`).addEventListener("click", async () => {
+                const resolveID = { id: id };
+                console.log(`updating status of ${resolveID.id}...`);
+                const request = await fetch("/update/status:resolved", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(resolveID)
+                });
+                const response = await request.text();
+                if (response == "resolved") {
+                    location.reload();
+                }
             });
 
             document.getElementById("saveUpdate").addEventListener("click", event => {
@@ -136,8 +150,8 @@ const toolBox = async () => {
                     document.getElementById("updateModal").style.display = "none";
                 }
               });
-
     }(requestIdArray[item].id,requestIdArray[item].comments));
+
     };
 };
 toolBox();
