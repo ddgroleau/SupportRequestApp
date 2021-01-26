@@ -11,5 +11,5 @@ exports.updateComments = async (request, response) => {
     if (err) throw err;
     console.log("Update Success");
     });
-    response.render("dashboard.ejs")
+    response.redirect("/dashboard")
     };
