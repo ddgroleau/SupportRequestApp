@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <title>Profile - Support Request Tool</title>
 </head>
 <body>
     <h1>My Profile</h1>
     <hr>
+    <a href="/dashboard"><button>Dashboard</button></a>
+    <a href="/profile/requests"><button>My Requests</button></a>
+    <a href="/profile/analytics"><button>My Analytics</button></a>
+    <button id="searchRequest">Request Search</button>
+    <a href="/logout"><button>Logout</button></a>
+
     <p><span><%=(typeof message!='undefined')? message:''%></span></p>
     
+    <!----- Update Request Modal -------------------------->
+    <div id="searchModal" class="modal">
+
+        <div class="modal-content">
+              <span id="closeSearch" class="close">&times;</span>
+              
+              <center><P>Request Search</P></center>
+              
+              <form method="GET" action="/update/:comments?_method=PUT" class="createForm" id="searchForm">
+                <input value="test">
+                </form>
+            </div>
+        </div>
+        <!------- End of Modal --------------------------------->
+        
+    <script src="../scripts/search.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ exports.updateComments = async (request, response) => {
     console.log("Update Success");
     });
     response.redirect("/dashboard")
-    };
+};
 
 exports.updateStatusResolved = async (request, response) => {
     console.log(request.body);
@@ -21,7 +21,17 @@ exports.updateStatusResolved = async (request, response) => {
     const resolved = "Resolved";
     db.query(`UPDATE supportrequests SET status = "${resolved}" WHERE id = "${id}"`, (err, result) => {
     if (err) throw err;
-    console.log("Update Success");
-    });
     response.send("resolved");
-    };
+    });
+};
+
+exports.updateStatusRejected = async (request, response) => {
+    console.log(request.body);
+    const data = await request.body;
+    const id = data.id;
+    const rejected = "Rejected";
+    db.query(`UPDATE supportrequests SET status = "${rejected}" WHERE id = "${id}"`, (err, result) => {
+    if (err) throw err;
+    response.send("rejected");
+    });
+};
