@@ -8,8 +8,38 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Welcome<span> <%=(typeof message!='undefined')? message:''%>!</span></h1>
+    <!-- Begin Banner-Style Header --> 
+    <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
+
     <hr>
+    <!-- End Banner-Style Header --> 
+    
+    <a href="/myrequests"><button>My Requests</button></a>
+    <a href="/analytics"><button>Analytics</button></a>
+    <a href="/findrequest"><button>Request Search</button></a>
+    <a href="/profile"><button>Update Profile</button></a>
+    <a href="/logout"><button>Logout</button></a>
+     
+    <!-- Begin Queue Table --> 
+    <h4>Support Requests Assigned to You</h4>
+    <table id="queue">
+          <tr>
+              <th>Request ID</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Creation Date</th>
+              <th>Request Summary</th>
+              <th>Assigned To</th>
+              <th>Created By</th>
+              <th>Status</th>
+              <th>Date Due</th>
+              <th>Comments</th>
+              <th>Tools</th>
+          </tr>
+        </table>
+    <br>
+    <!-- End Queue Table --> 
+
     <button id="create">CREATE<br>Request</button>
     <br>
     <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
@@ -117,27 +147,6 @@
     
         </div>
         <!------- End of Modal --------------------------------->
-      
-        <h4>Support Requests Assigned to You</h4>
-        
-    <table id="queue">
-          <tr>
-              <th>Request ID</th>
-              <th>Type</th>
-              <th>Category</th>
-              <th>Creation Date</th>
-              <th>Request Summary</th>
-              <th>Assigned To</th>
-              <th>Created By</th>
-              <th>Status</th>
-              <th>Date Due</th>
-              <th>Comments</th>
-              <th>Tools</th>
-          </tr>
-        </table>
-    
-    <br>
-    <a href="/logout"><button>Logout</button></a>
 
     <script src="../scripts/create.js"></script>
     <script src="../scripts/queue.js"></script>
