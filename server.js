@@ -22,6 +22,7 @@ const createRequest= require('./routes/create-request');
 const readRequests= require('./routes/read-request');
 const currentUser= require('./routes/current-user');
 const updateRequest= require("./routes/update")
+const deleteRequest= require("./routes/delete")
 
 // --- EXPRESS SETUP ---
 const app = express();
@@ -74,6 +75,7 @@ app.use("/", dashboard)
 app.use("/", logout)
 app.use("/", createRequest);
 app.use("/", updateRequest);
+app.use("/", deleteRequest);
 
 
 

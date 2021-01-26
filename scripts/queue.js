@@ -96,7 +96,7 @@ const toolBox = async () => {
     };
    for (item in requestIdArray) {
        (function (id,comments) {
-            
+        // Updates Comments in your queue
         document.getElementById(`update${id}`).addEventListener("click", async () => {
                 const updateID = id;
                 const updateComments = comments;
@@ -106,9 +106,20 @@ const toolBox = async () => {
                 document.getElementById("updatecomments").value = updateComments;
             });
             
-        document.getElementById(`reject${id}`).addEventListener("click", () => {
-                const rejectID = id;
-                console.log(`deleting ${rejectID}...`);
+        document.getElementById(`reject${id}`).addEventListener("click", async () => {
+                const rejectID = { id: id };
+                console.log(`deleting ${rejectID.id}...`);
+                const request = await fetch("/delete", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(rejectID)
+                });
+                const response = await request.text();
+                if (response == "deleted") {
+                    location.reload();
+                }
              });
             
          document.getElementById(`resolve${id}`).addEventListener("click", () => {
