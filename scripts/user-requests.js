@@ -12,9 +12,9 @@ const getRequests = async () => {
     const response = await request.json();
     const queue = [];
     for (item in response) {
-        const assignedToUser = await response[item].assignedto;
+        const createdByUser = await response[item].createdby;
         const lineStatus = await response[item].status;
-        if (assignedToUser === currentUser && lineStatus === "Pending") {
+        if (createdByUser === currentUser && lineStatus === "Pending") {
             let userRequest = {
                 id: response[item].id,
                 type: response[item].type,
@@ -32,6 +32,7 @@ const getRequests = async () => {
     };
     return queue;
 };
+
 // Generates a table on the DOM of all the requests assigned to the user
 const generateTable = async () => {
     const queue = await getRequests();
@@ -42,30 +43,28 @@ const generateTable = async () => {
             const newCell = document.createElement("td")
             newCell.textContent = value;
             newRow.append(newCell);
-            document.getElementById('queue').append(newRow);
         };
-        
+        document.getElementById('openrequests').append(newRow);
         let rowID = queue[row].id;
-        
         let updateButton = document.createElement("button")
         updateButton.id = `update${rowID}`;
         updateButton.textContent = "New Comment"
         updateButton.setAttribute("class","updateButton");
         
+        let rejectButton = document.createElement("button")
+        rejectButton.id = `reject${rowID}`;
+        rejectButton.textContent = "Delete"
+        rejectButton.setAttribute("class","rejectButton");
+  
         let resolveButton = document.createElement("button")
         resolveButton.id = `resolve${rowID}`;
         resolveButton.textContent = "Complete"
         resolveButton.setAttribute("class","resolveButton");
-
-        let rejectButton = document.createElement("button")
-        rejectButton.id = `reject${rowID}`;
-        rejectButton.textContent = "Reject"
-        rejectButton.setAttribute("class","rejectButton");
         
         let tools = document.createElement("td")
-        tools.append(rejectButton);
         tools.append(resolveButton);
         tools.append(updateButton);
+        tools.append(rejectButton);
         newRow.append(tools);
 
     };
@@ -75,9 +74,10 @@ const generateTable = async () => {
         singleCell.textContent = "Your Queue is empty";
         singleCell.colSpan = 11;
         newRow.append(singleCell);
-        document.getElementById('queue').append(newRow);
+        document.getElementById('openrequests').append(newRow);
     };
 };
+
 // Adds event listers to the buttons in the users queue that allow them to peform read, update and delete actions
 const toolBox = async () => {
     await generateTable();
@@ -86,9 +86,9 @@ const toolBox = async () => {
     const response = await request.json();
     let requestIdArray = [];
     for (item in response) {
-        const assignedToUser = await response[item].assignedto;
+        const createdByUser = await response[item].createdby;
         const status = await response[item].status;
-        if (assignedToUser === currentUser && status === "Pending") {
+        if (createdByUser === currentUser && status === "Pending") {
             requestIdArray.push({
                 id: await response[item].id,
                 comments: await response[item].comments,
@@ -108,10 +108,26 @@ const toolBox = async () => {
                 document.getElementById("updatecomments").value = updateComments;
             });
             
+        document.getElementById(`reject${id}`).addEventListener("click", async () => {
+                const rejectID = { id: id };
+                console.log(`deleting ${rejectID.id}...`);
+                const request = await fetch("/delete", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(rejectID)
+                });
+                const response = await request.text();
+                if (response == "deleted") {
+                    location.reload();
+                }
+             });
+            
          document.getElementById(`resolve${id}`).addEventListener("click", async () => {
                 const resolveID = { id: id };
                 console.log(`updating status of ${resolveID.id}...`);
-                const request = await fetch("/update/status/resolved", {
+                const request = await fetch("/update/status:resolved", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -122,24 +138,7 @@ const toolBox = async () => {
                 if (response == "resolved") {
                     location.reload();
                 };
-            });
-
-            document.getElementById(`reject${id}`).addEventListener("click", async () => {
-                const rejectID = { id: id };
-                console.log(`rejecting ${rejectID.id}...`);
-                const request = await fetch("/update/status/rejected", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(rejectID)
-                });
-                const response = await request.text();
-                if (response == "rejected") {
-                    location.reload();
-                };
-            });
-
+            })
             document.getElementById("saveUpdate").addEventListener("click", event => {
                 document.getElementById("updateModal").style.display = "none";
               });
@@ -147,7 +146,7 @@ const toolBox = async () => {
               window.addEventListener("click", event => {
                 if (event.target == document.getElementById("updateModal")) {
                     document.getElementById("updateModal").style.display = "none";
-                }
+                };
               });
     }(requestIdArray[item].id,requestIdArray[item].comments));
 
@@ -155,3 +154,55 @@ const toolBox = async () => {
 };
 toolBox();
 
+// Gets Closed Requests Assigned to the User
+const getClosedRequests = async () => {
+    const currentUser = await getUser();
+    const request = await fetch("/routes/requests");
+    const response = await request.json();
+    const queue = [];
+    for (item in response) {
+        const createdByUser = await response[item].createdby;
+        const lineStatus = await response[item].status;
+        if (createdByUser === currentUser && (lineStatus === "Resolved" || lineStatus === "Rejected")) {
+            let userRequest = {
+                id: response[item].id,
+                type: response[item].type,
+                category: response[item].category,
+                creationdate: response[item].creationdate.slice(0,10),
+                requestsummary: response[item].requestsummary,
+                assignedto: response[item].assignedto,
+                createdby:response[item].createdby,
+                status:response[item].status,
+                datedue:response[item].duedate.slice(0,10),
+                comments:response[item].comments,
+            }
+            queue.push(userRequest);
+        };
+    };
+    return queue;
+};
+
+// Generates Closed Request Table
+const generateClosedRequestsTable = async () => {
+    const queue = await getClosedRequests();
+    if (queue.length > 0) {
+        for (row in queue) {
+            const newRow = document.createElement("tr")
+            for (const [key, value] of Object.entries(queue[row])) {
+                const newCell = document.createElement("td")
+                newCell.textContent = value;
+                newRow.append(newCell);
+                document.getElementById('closedrequests').append(newRow);
+            } 
+        }
+        }
+    else {
+        const newRow = document.createElement("tr")
+        const singleCell = document.createElement("td")
+        singleCell.textContent = "Your Queue is empty";
+        singleCell.colSpan = 11;
+        newRow.append(singleCell);
+        document.getElementById('closedrequests').append(newRow);
+    };
+};
+generateClosedRequestsTable();
