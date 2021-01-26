@@ -47,7 +47,7 @@ const generateTable = async () => {
         
         let updateButton = document.createElement("button")
         updateButton.id = `update${rowID}`;
-        updateButton.textContent = "Update"
+        updateButton.textContent = "New Comment"
         updateButton.setAttribute("class","updateButton");
         
         let rejectButton = document.createElement("button")

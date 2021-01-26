@@ -1,4 +1,4 @@
-// Modal Control 
+// Modal Control - Create
 const createBtn = document.getElementById("create");
 const createModal = document.getElementById("createModal");
 const span = document.getElementsByClassName("close")[0];
@@ -16,7 +16,7 @@ window.addEventListener("click", event => {
     createModal.style.display = "none";
   }
 });
-// End Modal Control
+// End Modal Control - Create
 
 // Event Listener To Allow User to Input Parent Project for Type: Project Subtask or Assign Request ID
 document.getElementById("type").addEventListener("change", event => {
