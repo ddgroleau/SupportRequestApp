@@ -1,7 +1,6 @@
 const express = require("express");
 const Router = express.Router();
 const db = require("../database")
-const bcrypt = require('bcrypt');
 const session = require('express-session');
 
 exports.onLogin= async (request, response) => {

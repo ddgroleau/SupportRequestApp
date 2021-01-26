@@ -2,16 +2,9 @@ const express = require("express");
 const session = require("express-session");
 const Router = express.Router();
 const db = require("../database")
+const currentUser = require("../controllers/current-user-controller")
 
 
-Router.get("/currentUser", (request, response) => {
-    db.query(`SELECT * FROM users WHERE username = "${request.session.username}"`, (err, result) => {
-        if (err) throw err;
-        response.send({
-            username: result[0].username,
-            email: result[0].email,
-        });
-    });
-});
+Router.get("/currentUser", currentUser.getCurrentUser);
 
 module.exports = Router

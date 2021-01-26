@@ -2,14 +2,8 @@ const { request } = require("express");
 const express = require("express");
 const Router = express.Router();
 const db = require("../database")
+const deleteController = require('../controllers/delete-controller');
 
-Router.post("/delete", async (request, response) => {
-    const id = await request.body.id;
-    db.query(`DELETE FROM supportrequests WHERE id = "${id}"`, (err, result) => {
-        if (err) throw err;
-        console.log(result);
-    })
-    response.send("deleted");
-});
+Router.post("/delete", deleteController.deleteQueueLine);
 
 module.exports = Router;

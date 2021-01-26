@@ -32,7 +32,7 @@ exports.createRequest = async (request, response) => {
         if (err) throw err,
         console.log("Database Updated.")
         });
-        response.render('dashboard.ejs', { createmsg: "Request Submitted Successfully "});
+        response.redirect("/dashboard");
     } catch (err) {
         console.log(err);
         response.render('dashboard.ejs', { createmsg: `There was an error with your request. Please try again.`});

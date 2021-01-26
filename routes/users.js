@@ -3,18 +3,11 @@ const Router = express.Router();
 const db = require("../database")
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const getUsers = require("../controllers/user-controller")
 
 
 // GET * FROM USERS
-Router.get("/users", (req, res)=> {
- db.query("SELECT * from users", (err, rows, fields) => {
-     if (!err) {
-         res.send(rows);
-     } else {
-     console.log(err);
-     }
- })
-});
+Router.get("/users", getUsers.getUsers);
 
 module.exports = Router;
 
