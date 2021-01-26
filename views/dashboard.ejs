@@ -14,9 +14,9 @@
     <hr>
     <!-- End Banner-Style Header --> 
     
-    <a href="/myrequests"><button>My Requests</button></a>
-    <a href="/analytics"><button>Analytics</button></a>
-    <a href="/findrequest"><button>Request Search</button></a>
+    <a href="profile/requests"><button>My Requests</button></a>
+    <a href="profile/analytics"><button>Analytics</button></a>
+    <button id="searchRequest">Request Search</button>
     <a href="/profile"><button>Update Profile</button></a>
     <a href="/logout"><button>Logout</button></a>
      
@@ -148,7 +148,23 @@
         </div>
         <!------- End of Modal --------------------------------->
 
+            <!----- Update Request Modal -------------------------->
+    <div id="searchModal" class="modal">
+
+        <div class="modal-content">
+              <span id="closeSearch" class="close">&times;</span>
+              
+              <center><P>Request Search</P></center>
+              
+              <form method="GET" action="/update/:comments?_method=PUT" class="createForm" id="searchForm">
+                <input value="test">
+                </form>
+            </div>
+        </div>
+        <!------- End of Modal --------------------------------->
+
     <script src="../scripts/create.js"></script>
     <script src="../scripts/queue.js"></script>
+    <script src="../scripts/search.js"></script>
 </body>
 </html>
