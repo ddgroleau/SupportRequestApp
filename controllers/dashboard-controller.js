@@ -7,6 +7,6 @@ exports.onLogin= async (request, response) => {
     if (request.session.loggedin) {
  response.render('dashboard.ejs', {message: request.session.username})
     } else {
-        response.render('login.ejs', {message:'Please login.'});
+        response.redirect('/');
     }
 };
