@@ -2,6 +2,7 @@
 
 // --- MODULES/DEPENDENCIES ---
 const express = require('express');
+const methodOverride = require('method-override');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const Router = express.Router();
@@ -20,6 +21,7 @@ const logout= require('./routes/logout');
 const createRequest= require('./routes/create-request');
 const readRequests= require('./routes/read-request');
 const currentUser= require('./routes/current-user');
+const updateRequest= require("./routes/update")
 
 // --- EXPRESS SETUP ---
 const app = express();
@@ -28,6 +30,7 @@ app.use(express.static(__dirname));
 app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // SESSION
 const options = {
@@ -70,6 +73,7 @@ app.use("/", login)
 app.use("/", dashboard)
 app.use("/", logout)
 app.use("/", createRequest);
+app.use("/", updateRequest);
 
 
 

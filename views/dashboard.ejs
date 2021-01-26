@@ -90,7 +90,7 @@
     <!------- End of Modal --------------------------------->
 
 
-    <!----- Create Request Form Modal -------------------------->
+    <!----- Update Request Modal -------------------------->
     <div id="updateModal" class="modal">
 
         <div class="modal-content">
@@ -98,7 +98,9 @@
               
               <center><P>Update Support Request</P></center>
               
-              <form method="POST" action="updateRequest" class="createForm" id="updateform">
+              <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
+                
+                    <input type="hidden" name="_method" value="PUT">
 
                     <label for="updateid">Request ID: </label>
                     <input type="number" id="updateid" name="updateid" value="" readonly>
@@ -109,7 +111,7 @@
                 <textarea type="text" id="updatecomments" name="updatecomments" form="updateform"></textarea>
                 <br>
                 <br>
-                <button form="updateform" type="submit" id="updateReq">Save</button>
+                <button form="updateform" type="submit" id="updatebtn">Save</button>
     
             </div>
     
