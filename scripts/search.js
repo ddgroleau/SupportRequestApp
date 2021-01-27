@@ -167,7 +167,6 @@ function searchByAssignee(elementID,btnID) {
       document.getElementById("searchid").value = "";
     });
   }  
-  
   searchByID("searchid","searchidBtn");
   searchByCreator("searchcreator","searchcreatorbtn");
   searchByAssignee("searchassignee","searchassigneebtn");

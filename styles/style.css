@@ -35,3 +35,7 @@ h4 {
     padding: 1%;
 }
 
+#newemail, #saveemail, #passwordlabel, #savepassword, #newpassword, #confirmnewpassword, #confirmlabel{
+visibility: hidden;
+}
+
