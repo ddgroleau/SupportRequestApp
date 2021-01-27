@@ -148,18 +148,31 @@
         </div>
         <!------- End of Modal --------------------------------->
 
-            <!----- Update Request Modal -------------------------->
+            <!----- Search Request Modal -------------------------->
     <div id="searchModal" class="modal">
 
         <div class="modal-content">
               <span id="closeSearch" class="close">&times;</span>
               
               <center><P>Request Search</P></center>
-              
-              <form method="GET" action="/update/:comments?_method=PUT" class="createForm" id="searchForm">
-                <input value="test">
-                </form>
-            </div>
+       
+                <label for="searchid">Search Request by ID:</label>
+                <input id="searchid" value="">
+                <button id="searchidBtn">Search</button>
+                <br>
+                <label for="searchcreator">Search Request by Creator:</label>
+                <input id="searchcreator" value="">
+                <button id="searchcreatorbtn">Search</button>
+                <br>
+                <label for="searchassignee">Search Request by Assignee:</label>
+                <input id="searchassignee" value="">
+                <button id="searchassigneebtn">Search</button>
+                <br>
+                <br>
+                <table id="searchtable">
+                    </table>
+
+</div>
         </div>
         <!------- End of Modal --------------------------------->
 
