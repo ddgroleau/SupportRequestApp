@@ -1,15 +1,24 @@
 //Modal Control for Search Modal
 document.getElementById("searchRequest").addEventListener("click", event => {
     document.getElementById("searchModal").style.display = "block";
+    
 });
 
 document.getElementById("closeSearch").addEventListener("click", event => {
     document.getElementById("searchModal").style.display = "none";
+    document.getElementById("searchtable").innerText = "";
+    document.getElementById("searchid").value = "";
+    document.getElementById("searchassignee").value = "";
+    document.getElementById("searchcreator").value = "";
   });
 
   window.addEventListener("click", event => {
     if (event.target == document.getElementById("searchModal")) {
         document.getElementById("searchModal").style.display = "none";
+        document.getElementById("searchtable").innerText = "";
+        document.getElementById("searchid").value = "";
+        document.getElementById("searchassignee").value = "";
+        document.getElementById("searchcreator").value = "";
     }
   });
   // End Modal Control
@@ -23,11 +32,11 @@ document.getElementById("closeSearch").addEventListener("click", event => {
     category: "Category",
     creationdate: "Creation Date",
     requestsummary: "Request Summary",
-    assignedto: "Assigned To",
-    createdby: "Created By",
-    status: "Status",
     duedate: "Date Due",
-    comments: "Comments"
+    comments: "Comments",
+    status: "Status",
+    assignedto: "Assigned To",
+    createdby: "Created By"
     };
     for (const [key, value] of Object.entries(columns)) {
       const cell = document.createElement("th")
