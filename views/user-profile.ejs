@@ -15,24 +15,54 @@
     <a href="/profile/analytics"><button>My Analytics</button></a>
     <button id="searchRequest">Request Search</button>
     <a href="/logout"><button>Logout</button></a>
+    <br>
+    <br>
+    <p><span><%=(typeof message!='undefined')? message:''%>'s Profile:</span></p>
+    <br>
+    <p>Current Email: <span id="useremail"></span></p>
+    <br>
+    <button id="newemailbtn">Change Email</button>
+    <button id="newpasswordbtn">Change Password</button>
 
-    <p><span><%=(typeof message!='undefined')? message:''%></span></p>
+    <input id="newemail" value="Enter Your New Email">
+    <button id="saveemail">Save Email</button>
+    <br>
+    <label for="newpassword" id="passwordlabel">Enter Your New Password Below:</label>
+    <input id="newpassword" type="password">
+    <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password:</label>
+    <input id="confirmnewpassword" type="password">
+    <button id="savepassword">Save Password</button>
+
     
-    <!----- Update Request Modal -------------------------->
-    <div id="searchModal" class="modal">
+<!----- Search Request Modal -------------------------->
+<div id="searchModal" class="modal">
 
-        <div class="modal-content">
-              <span id="closeSearch" class="close">&times;</span>
-              
-              <center><P>Request Search</P></center>
-              
-              <form method="GET" action="/update/:comments?_method=PUT" class="createForm" id="searchForm">
-                <input value="test">
-                </form>
-            </div>
-        </div>
-        <!------- End of Modal --------------------------------->
+    <div class="modal-content">
+          <span id="closeSearch" class="close">&times;</span>
+          
+          <center><P>Request Search</P></center>
+   
+            <label for="searchid">Search Request by ID:</label>
+            <input id="searchid" value="">
+            <button id="searchidBtn">Search</button>
+            <br>
+            <label for="searchcreator">Search Request by Creator:</label>
+            <input id="searchcreator" value="">
+            <button id="searchcreatorbtn">Search</button>
+            <br>
+            <label for="searchassignee">Search Request by Assignee:</label>
+            <input id="searchassignee" value="">
+            <button id="searchassigneebtn">Search</button>
+            <br>
+            <br>
+            <table id="searchtable">
+                </table>
+
+</div>
+    </div>
+    <!------- End of Modal --------------------------------->
         
     <script src="../scripts/search.js"></script>
+    <script src="../scripts/update-profile.js"></script>
 </body>
 </html>
