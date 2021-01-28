@@ -38,3 +38,13 @@ exports.changePassword = async (request, response) => {
             });
         };
     };
+
+exports.changeEmail = async (request, response) => {
+    const currentUser = request.session.username;    
+    const newEmail =  request.body.email;
+        db.query(`UPDATE users SET username = "${currentUser}" WHERE email = "${newEmail}"`, (err, result) => {
+            if (err) throw err;
+            console.log("User email updated.")
+            response.send({serverAlert: "Email address updated."});
+            });
+        };

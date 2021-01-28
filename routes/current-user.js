@@ -18,4 +18,6 @@ Router.get("/currentUser:requests", async (request, response) => {
 
 Router.post("/currentUser/update/password", currentUser.changePassword);
 
+Router.post("/currentUser/update/email", currentUser.changeEmail);
+
 module.exports = Router

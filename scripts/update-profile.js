@@ -33,6 +33,7 @@ saveEmailBtn.addEventListener("click", event => {
    newEmailInput.style.visibility = "hidden";
     saveEmailBtn.style.visibility = "hidden";
     newEmailBtn.style.visibility = "visible";
+    saveNewEmail(newEmailInput.value);
 });
 
 savePasswordBtn.addEventListener("click", event => {
@@ -61,6 +62,20 @@ async function saveNewPassword(newPass) {
         "Content-Type": "application/json",
     },
     body: JSON.stringify(newPassword)
+});
+const response = await request.json();
+document.getElementById("displayAlert").textContent = response.serverAlert;
+};
+
+async function saveNewEmail(newEmail) {
+    const changeEmail = { email: newEmail } 
+    const updateEmailAPI = "/routes/currentUser/update/email";
+    const request = await fetch(updateEmailAPI, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(changeEmail)
 });
 const response = await request.json();
 document.getElementById("displayAlert").textContent = response.serverAlert;
