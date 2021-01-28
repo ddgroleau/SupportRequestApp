@@ -17,14 +17,15 @@
     <a href="/logout"><button>Logout</button></a>
     <br>
     <br>
-    <p><span><%=(typeof message!='undefined')? message:''%>'s Profile:</span></p>
+    <p id="displayAlert"></p>
     <br>
     <p>Current Email: <span id="useremail"></span></p>
     <br>
     <button id="newemailbtn">Change Email</button>
     <button id="newpasswordbtn">Change Password</button>
+    <p><span><%=(typeof serverAlert!='undefined')? serverAlert:''%></span></p>
 
-    <input id="newemail" value="Enter Your New Email">
+    <input id="newemail" value="Enter Your New Email" type="email">
     <button id="saveemail">Save Email</button>
     <br>
     <label for="newpassword" id="passwordlabel">Enter Your New Password Below:</label>
@@ -32,6 +33,7 @@
     <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password:</label>
     <input id="confirmnewpassword" type="password">
     <button id="savepassword">Save Password</button>
+    <p id="passwordreqs">Your password must be at least eight characters, and must contain at least one number, one uppercase letter, and one lowercase letter.</p>
 
     
 <!----- Search Request Modal -------------------------->
