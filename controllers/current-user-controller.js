@@ -31,7 +31,7 @@ exports.changePassword = async (request, response) => {
     } else if (newPassword.search(/[a-z]/) == -1) {
         response.send( {serverAlert:"Password must contain a lowercase letter. Try again."});
     } else { 
-        db.query(`UPDATE users SET username = "${currentUser}" WHERE password = "${hash}"`, (err, result) => {
+        db.query(`UPDATE users SET password = "${hash}" WHERE username = "${currentUser}"`, (err, result) => {
             if (err) throw err;
             console.log("User password updated.")
             response.send({serverAlert: "Password changed successfully."});
@@ -42,7 +42,7 @@ exports.changePassword = async (request, response) => {
 exports.changeEmail = async (request, response) => {
     const currentUser = request.session.username;    
     const newEmail =  request.body.email;
-        db.query(`UPDATE users SET username = "${currentUser}" WHERE email = "${newEmail}"`, (err, result) => {
+        db.query(`UPDATE users SET email = "${newEmail}" WHERE username = "${currentUser}"`, (err, result) => {
             if (err) throw err;
             console.log("User email updated.")
             response.send({serverAlert: "Email address updated."});
