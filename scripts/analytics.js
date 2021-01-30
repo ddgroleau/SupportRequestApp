@@ -38,15 +38,15 @@ const numCreated  = await getCreated();
 const currentUser = await getUser();
    const ctx = document.getElementById('chart1').getContext('2d');
     const chart = new Chart(ctx, {
-        label: `${currentUser}'s Requests`,
+        label: 'test',
         type: 'bar',
         data: {
-            labels: ['Assigned', 'Created'],
+            labels: ['Assigned', 'Created','test'],
             datasets: [{
                 label: false,
-                data: [1,2],
-                backgroundColor: 'white',
-                borderColor: 'black',
+                data: [1,2,3],
+                backgroundColor: ['white','black','white'],
+                borderColor: ['black','white','black'],
                 borderWidth: 0.5
             }]
         },
