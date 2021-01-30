@@ -38,16 +38,32 @@ const numCreated  = await getCreated();
 const currentUser = await getUser();
    const ctx = document.getElementById('chart1').getContext('2d');
     const chart = new Chart(ctx, {
-        label: 'test',
+        label: 'Chart 1',
         type: 'bar',
         data: {
-            labels: ['Assigned', 'Created','test'],
+            
             datasets: [{
-                label: false,
-                data: [1,2,3],
-                backgroundColor: ['white','black','white'],
-                borderColor: ['black','white','black'],
-                borderWidth: 0.5
+                label: ['Assigned'],
+                data: [numAssigned],
+                backgroundColor: [
+                    'green',
+                 ],
+                borderColor: [
+                    'black',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: ['Created'],
+                data: [numCreated],
+                backgroundColor: [
+                    
+                    'yellow',
+                 ],
+                borderColor: [
+                    'black',
+                ],
+                borderWidth: 1
             }]
         },
     options: {
@@ -55,7 +71,7 @@ const currentUser = await getUser();
         aspectRatio: 1,
         maintainAspectRatio: true,
      scales: {
-         xAxes: [{
+         yAxes: [{
          ticks: {
             min: 0, 
          },
@@ -63,7 +79,7 @@ const currentUser = await getUser();
      },
         title: {
             display: true,
-            text: 'Custom Chart Title'
+            text: `${currentUser}'s Number of Open Requests: Assigned-To and Created-By`
         },
         layout: {
             padding: {
