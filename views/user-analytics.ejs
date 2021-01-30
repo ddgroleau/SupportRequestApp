@@ -17,6 +17,8 @@
     <a href="/logout"><button>Logout</button></a>
 
     <p><span><%=(typeof message!='undefined')? message:''%></span></p>
+
+    <canvas id="chart1" width="200px" height="200px"></canvas>
     
 <!----- Search Request Modal -------------------------->
 <div id="searchModal" class="modal">
@@ -45,7 +47,8 @@
 </div>
     </div>
     <!------- End of Modal --------------------------------->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="../scripts/analytics.js"></script>
     <script src="../scripts/search.js"></script>
 </body>
 </html>
