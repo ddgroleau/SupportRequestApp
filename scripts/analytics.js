@@ -32,7 +32,7 @@ const getCreated = async () => {
     };
     return count2;
 };
-// Renders Chart
+// Renders Chart 1
 const createAssignedChart = async () => {
 const numAssigned = await getAssigned(); 
 const numCreated  = await getCreated();  
@@ -42,7 +42,7 @@ const currentUser = await getUser();
         label: 'Chart 1',
         type: 'bar',
         data: {
-            labels: ['Assigned vs. Created'],
+            labels: ["Assigned vs. Created"],
             datasets: [{
                 label: ['Assigned'],
                 data: [numAssigned],
@@ -70,12 +70,16 @@ const currentUser = await getUser();
     options: {
         responsive: true,
         aspectRatio: 1,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
      scales: {
          yAxes: [{
          ticks: {
             min: 0, 
          },
+         scaleLabel: {
+            display: true,
+            labelString: 'Requests',
+        }
         }]
      },
         title: {
@@ -84,10 +88,10 @@ const currentUser = await getUser();
         },
         layout: {
             padding: {
-                left: 20,
-                right: 500,
-                top: 30,
-                bottom: 900
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
             }
         }
     }
@@ -146,7 +150,7 @@ const getPending = async () => {
     return count1;
 };
 
-// Renders Chart
+// Renders Chart 2
 const dueCurrentWeek = async () => {
     const numPending = await getPending(); 
     const numCompleted = await getCompleted();
@@ -174,12 +178,24 @@ const dueCurrentWeek = async () => {
         options: {
             responsive: true,
             aspectRatio: 1,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
          scales: {
+             xAxes : [{
+                ticks: {
+                    display: false 
+                 },
+                 gridLines: {
+                     drawOnChartArea: false
+                 }
+             }],
              yAxes: [{
              ticks: {
-                min: 0, 
+                min: 0,
+                display: false 
              },
+            gridLines: {
+                drawOnChartArea: false
+            }
             }]
          },
             title: {
@@ -188,13 +204,120 @@ const dueCurrentWeek = async () => {
             },
             layout: {
                 padding: {
-                    left: 20,
-                    right: 500,
-                    top: 30,
-                    bottom: 900
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
                 }
             }
         }
     });
     };
     dueCurrentWeek();
+
+// Gets date frequency
+async function getOccurences(func) {
+    const arr = await func;
+        const result = Array.from(arr.reduce(
+            (m, {x, y}) => m.set(x, (m.get(x) || 0) + y), new Map
+              ), ([x, y]) => ({x, y}));
+              return result;
+    };
+
+// Gets # of Pending Requests Assigned to User (All Time)
+const allReqsAssigned = async () => {
+    const currentUser = await getUser();
+    const request = await fetch("/routes/requests");
+    const response = await request.json();
+    const assignedX = []
+    for (date in response) {
+        if (response[date].assignedto == currentUser) {
+            assignedX.push({ 
+                x: response[date].creationdate.slice(0,10), 
+                y: 1 
+            });
+        };
+    };
+    return assignedX;
+};
+
+// Gets # of Pending Requests Created by User (All Time)
+const allReqsCreated = async () => {
+    const currentUser = await getUser();
+    const request = await fetch("/routes/requests");
+    const response = await request.json();
+    const createdX = []
+    for (date in response) {
+        if (response[date].createdby == currentUser) {
+            createdX.push({ 
+                x: response[date].creationdate.slice(0,10), 
+                y: 1 
+            });
+        };
+    };
+    return createdX;
+};
+
+    // Renders Chart 3
+const createTimelineChart = async () => {
+    const numAssigned = await getOccurences(allReqsCreated());
+    const numCreated  = await getOccurences(allReqsAssigned());   
+    const currentUser = await getUser();
+       const ctx = document.getElementById('chart3').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            label: "",
+    data: {
+    datasets: [{
+      label: ['Assigned On'],
+      data: numAssigned,
+      backgroundColor: 'yellow',
+      borderColor: 'yellow',
+      borderWidth: 1,
+      fill: false
+    },{
+        label: ['Created On'],
+        data: numCreated,
+        backgroundColor: 'green',
+        borderColor: 'green',
+        borderWidth: 1,
+        fill: false
+      }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      xAxes: [{
+        type: 'time',
+        time: {
+            unit: 'day'
+        },
+        distribution: 'linear',
+      }],
+      yAxes: [{
+        ticks: {
+           min: 0, 
+        },
+        scaleLabel: {
+            display: true,
+            labelString: 'Requests',
+        }
+       }]
+    },
+    title: {
+        display: true,
+        text: `${currentUser}'s Request Timeline`
+    },
+    layout: {
+        padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+        }
+  }
+  }
+});
+};
+    createTimelineChart();

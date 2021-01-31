@@ -17,11 +17,15 @@
     <a href="/logout"><button>Logout</button></a>
 
     <div id="requestnum" class="chart">
-        <canvas id="chart1" width="200px" height="200px"></canvas>
+        <canvas id="chart1"></canvas>
     </div>
     
     <div id="duecurrentweek" class="chart">
-        <canvas id="chart2" width="100px" height="100px"></canvas>
+        <canvas id="chart2"></canvas>
+    </div>
+
+    <div id="usertimeline" class="chart">
+        <canvas id="chart3"></canvas>
     </div>
 
     <p><span><%=(typeof message!='undefined')? message:''%></span></p>
@@ -53,6 +57,8 @@
 </div>
     </div>
     <!------- End of Modal --------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>moment().format();</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="../scripts/analytics.js"></script>
     <script src="../scripts/search.js"></script>
