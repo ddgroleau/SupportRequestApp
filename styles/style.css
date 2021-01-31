@@ -39,8 +39,9 @@ h4 {
 visibility: hidden;
 };
 
-#requestnum {
-    background-color: azure;
+.chart {
+    padding: 0;
+    margin: 0;
 }
 
 

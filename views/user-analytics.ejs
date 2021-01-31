@@ -16,11 +16,15 @@
     <a href="/profile"><button>Update Profile</button></a>
     <a href="/logout"><button>Logout</button></a>
 
-    <p><span><%=(typeof message!='undefined')? message:''%></span></p>
-
-    <div id="requestnum" width="200px" height="200px">
+    <div id="requestnum" class="chart">
         <canvas id="chart1" width="200px" height="200px"></canvas>
     </div>
+    
+    <div id="duecurrentweek" class="chart">
+        <canvas id="chart2" width="100px" height="100px"></canvas>
+    </div>
+
+    <p><span><%=(typeof message!='undefined')? message:''%></span></p>
     
 <!----- Search Request Modal -------------------------->
 <div id="searchModal" class="modal">

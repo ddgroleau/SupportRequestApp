@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "support-request-application",
   "version": "1.0.0",
   "description": "Support Request Project",
   "main": "server.js",

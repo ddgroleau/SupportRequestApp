@@ -70,7 +70,7 @@ const creator = async () => {
     return currentUser;
 };
 creator();
-// Gets Data
+// Gets Date
 function todaysDate() {
     const today = new Date();
     const dd = today.getDate();
