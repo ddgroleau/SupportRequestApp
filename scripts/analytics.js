@@ -5,33 +5,34 @@ const getUser = async () => {
     const currentUser = response.username;
     return currentUser;
 };
-
+// Gets # of Pending Requests Assigned to User
 const getAssigned = async () => {
     const currentUser = await getUser();
     const request = await fetch("/routes/requests");
     const response = await request.json();
     let count1 = 0;
     for (item in response) {
-        if (response[item].assignedto == currentUser) {
+    
+        if (response[item].assignedto == currentUser && response[item].status === "Pending") {
             count1++
         };
     };
     return count1;
 };
-
+// Gets # of Pending Requests Created by User
 const getCreated = async () => {
     const currentUser = await getUser();
     const request = await fetch("/routes/requests");
     const response = await request.json();
     let count2 = 0;
     for (item in response) {
-        if (response[item].createdby == currentUser) {
+        if (response[item].createdby == currentUser && response[item].status === "Pending" ) {
             count2++
         };
     };
     return count2;
 };
-
+// Renders Chart
 const createAssignedChart = async () => {
 const numAssigned = await getAssigned(); 
 const numCreated  = await getCreated();  
@@ -41,7 +42,7 @@ const currentUser = await getUser();
         label: 'Chart 1',
         type: 'bar',
         data: {
-            
+            labels: ['Assinged vs. Created'],
             datasets: [{
                 label: ['Assigned'],
                 data: [numAssigned],
