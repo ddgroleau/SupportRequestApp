@@ -10,7 +10,7 @@ body {
     background-attachment: fixed;
 }
 
-.parent-container-login {
+.parent-container-register {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,10 +18,8 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.login-container {
+.register-container {
     background-color:white;
-    align-content: center;
-    justify-content: center;
     width: 40%;
     height: auto;
     text-align: center;
@@ -32,20 +30,13 @@ body {
     padding: 2vh 1vh;
 }
 
-.login-container-icon {
-    max-height: 30vh;
-    width:auto;
-    padding: 2vh 0vh 0vh 0vh;
-}
-
-.login-form-container {
-    align-content: center;
-    justify-content: center;
+.register-form-container {
+    text-align: end;
     border: solid whitesmoke 0.5vh;
     background-color: rgba(245, 245, 245, 0.493);
     border-radius: 5vh;
-    padding: 1vh;
-    margin: 1vh 3vh 3vh 2vh;
+    padding: 1vh 10vh 0vh 1vh;
+    margin: 1vh;
 }
 
 input {
@@ -70,11 +61,11 @@ input:hover {
 }
 
 .input-label {
-    margin-right: 1vh;
+    margin-right: 2vh;
     font-size: 120%;
 }
 
-.login-button {
+.register-button {
     background-color: whitesmoke;
     padding: 1vh 2vh;
     margin: 1vh 0vh;
@@ -87,11 +78,18 @@ input:hover {
     cursor: pointer;
 }
 
-.login-button:hover {
+.register-button:hover {
     background-color: rgb(41, 187, 172);
     border: solid .25vh rgb(41, 187, 172);
     box-shadow: 0vh .50vh 1vh rgb(42, 200, 211);
     color:white;
     transition: .3s;
     transform: translateY(-0.4vh)
+}
+
+.password-rules {
+    font-size: 75%;
+   text-align: center;
+   margin: 1vh 10vh;
+
 }

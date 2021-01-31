@@ -4,46 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/register.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Register - Support Request Tool</title>
 </head>
 <body>
    
-  <div class="parent-container-registration">
+  <div class="parent-container-register">
   
-    <h1>Register</h1>
-      
-      <br>
-        <div>
+    <div class ="register-container">
+      <h1>Register</h1>
+        <div class="register-form-container">
           <form method="POST" action="register">
-
-            <div>
-            <label for="username">Username</label>
+            <label for="username" class="input-label">Username</label>
             <input id="username" type="text" name="username" required>
-          </div>
-
-          <div>
-            <label for="email">Email</label>
+            <br>
+            <label for="email" class="input-label">Email</label>
             <input id="email" type="email" name="email" required>
-          </div>
-
-          <div>
-            <label for="password">Password</label>
+            <br>
+            <label for="password" class="input-label">Password</label>
             <input id="password" type="password" name="password" required>
             <br>
-            <br>
-            <button type="submit" id="register">Register</button>
-            <br>
-            <br>
-            <p>Password must be at least 8 characters. Password must contain at least one uppercase letter, one lowercase letter, and one number.</p>
           </div>
-        </form>
-    
+
           <p><%=(typeof message!='undefined')? message:''%></p>
-            <br>
+          
+          <button class="register-button" type="submit" id="register">Register</button>
+        </form>
+        
+        <div class="password-rules">
+        <p>Password must be at least 8 characters. Password must contain at least one uppercase letter, one lowercase letter, and one number.</p>
         </div>
       
-      <a href="/">Login</a>
-
+        <p>Already have an account? <a href="/">Login</a></p>
+    </div>
   </div>
 
 </body>
