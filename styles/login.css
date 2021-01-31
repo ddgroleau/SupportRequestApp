@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(120deg, rgb(94, 92, 92), whitesmoke);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.parent-container-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+    background-color:white;
+    align-content: center;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+    text-align: center;
+    border:solid rgb(41, 187, 172) 1vh;
+    border-radius: 8vh;
+    margin-top: 5%;
+    box-shadow: 0vh 1vh 4vh rgba(0, 0, 0, 0.479);
+    padding: 2vh 1vh;
+}
+
+.login-container-icon {
+    max-height: 30vh;
+    width:auto;
+    padding: 2vh 0vh 0vh 0vh;
+}
+
+.login-form-container {
+    align-content: center;
+    justify-content: center;
+    border: solid whitesmoke 0.5vh;
+    background-color: rgba(245, 245, 245, 0.493);
+    border-radius: 5vh;
+    padding: 1vh;
+    margin: 1vh 3vh 3vh 2vh;
+}
+
+input {
+    padding: .5vh;
+    margin: .25vh 10vh .25vh .25vh;
+    font-family: 'Roboto', sans-serif;
+    width: 50%;
+    border: 0;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.356);
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgba(245, 245, 245, 0.493);
+    padding: 7px 0;
+    background: transparent;
+}
+
+input:hover {
+    transition: 0.1s;
+    border-bottom: 2px solid rgb(41, 187, 172);
+    background-color: rgba(143, 231, 222, 0.336);
+    border-radius: 1vh;
+}
+
+.input-label {
+    margin-right: 1vh;
+    font-size: 120%;
+}
+
+.login-button {
+    background-color: whitesmoke;
+    padding: 1vh 2vh;
+    margin: 1vh 0vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    border: solid .25vh rgb(41, 187, 172);
+    border-radius: 2vh;
+    color:rgb(94, 92, 92);
+    box-shadow: 0vh .25vh 1vh rgba(0, 0, 0, 0.479);
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: rgb(41, 187, 172);
+    border: solid .25vh rgb(41, 187, 172);
+    box-shadow: 0vh .50vh 1vh rgb(42, 200, 211);
+    color:white;
+    transition: .3s;
+    transform: translateY(-0.4vh)
+}

@@ -4,26 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Login - Support Request Tool</title>
 </head>
-<body>
-    <h1>Login</h1>
 
-    <div>
-      <form method="POST" action="login">
-        <div>
-        <label for="username">Username</label>
-        <input id="username" type="text" name="username" required>
-      </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" type="password" name="password" required>
-        </div>
-        <button type="submit" id="login">Login</button>
+<body>
+  <div class="parent-container-login">
+  
+  <div class="login-container">
+    <h1>Support Request Tool</h1>
+        <img class="login-container-icon" src="/images/database.png">
+
+      <div class="login-form-container">
+        <h2>Login:</h2>
+        <form method="POST" action="login">
+          <div>
+              <label for="username" class="input-label">Username</label>
+            <input id="username" type="text" name="username" required>
+            <br>
+              <label for="password" class="input-label">Password</label>
+            <input id="password" type="password" name="password" required>
+            <br>
+            <button type="submit" id="login" class="login-button">Enter</button>
         </form>
       </div>
-   <p><%=(typeof message!='undefined')? message:''%></p>
-      <a href="/register">Register</a>
-    
+    </div>
+      <p><%=(typeof message!='undefined')? message:''%></p>
+        
+      <p>or <a href="/register">register here</a></p>
+      
+  </div>
+
 </body>
 </html>

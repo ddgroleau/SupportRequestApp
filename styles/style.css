@@ -5,12 +5,11 @@
 }
 
 body {
-    background-color: salmon;
+    background-image: linear-gradient(120deg, rgb(94, 92, 92), white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-h1 {
-    color: white;
-}
 
 table, th, td, tr {
     border: 1px solid black;
@@ -31,9 +30,6 @@ table, th, td, tr {
     background-color: green;
 }
 
-h4 {
-    padding: 1%;
-}
 
 #newemail, #saveemail, #passwordlabel, #savepassword, #newpassword, #confirmnewpassword, #confirmlabel, #passwordreqs { 
 visibility: hidden;
