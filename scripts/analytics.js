@@ -32,72 +32,6 @@ const getCreated = async () => {
     };
     return count2;
 };
-// Renders Chart 1
-const createAssignedChart = async () => {
-const numAssigned = await getAssigned(); 
-const numCreated  = await getCreated();  
-const currentUser = await getUser();
-   const ctx = document.getElementById('chart1').getContext('2d');
-    const chart = new Chart(ctx, {
-        label: 'Chart 1',
-        type: 'bar',
-        data: {
-            labels: ["Assigned vs. Created"],
-            datasets: [{
-                label: ['Assigned'],
-                data: [numAssigned],
-                backgroundColor: [
-                    'green',
-                 ],
-                borderColor: [
-                    'black',
-                ],
-                borderWidth: 1
-            },
-            {
-                label: ['Created'],
-                data: [numCreated],
-                backgroundColor: [
-                    
-                    'yellow',
-                 ],
-                borderColor: [
-                    'black',
-                ],
-                borderWidth: 1
-            }]
-        },
-    options: {
-        responsive: true,
-        aspectRatio: 1,
-        maintainAspectRatio: false,
-     scales: {
-         yAxes: [{
-         ticks: {
-            min: 0, 
-         },
-         scaleLabel: {
-            display: true,
-            labelString: 'Requests',
-        }
-        }]
-     },
-        title: {
-            display: true,
-            text: `${currentUser}'s Number of Open Requests: Assigned-To and Created-By`
-        },
-        layout: {
-            padding: {
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0
-            }
-        }
-    }
-});
-};
-createAssignedChart();
 
 // Gets Today's Date
 function todaysDate() {
@@ -150,71 +84,6 @@ const getPending = async () => {
     return count1;
 };
 
-// Renders Chart 2
-const dueCurrentWeek = async () => {
-    const numPending = await getPending(); 
-    const numCompleted = await getCompleted();
-    const currentUser = await getUser();
-       const ctx = document.getElementById('chart2').getContext('2d');
-        const chart = new Chart(ctx, {
-            label: 'Chart 2',
-            type: 'doughnut',
-            data: {
-                labels: ['Open','Completed'],
-                datasets: [{
-                    labels: ['Blank'],
-                    data: [numPending, numCompleted],
-                    backgroundColor: [
-                        'yellow',
-                        'green',
-                     ],
-                    borderColor: [
-                        'black',
-                        'black',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-        options: {
-            responsive: true,
-            aspectRatio: 1,
-            maintainAspectRatio: false,
-         scales: {
-             xAxes : [{
-                ticks: {
-                    display: false 
-                 },
-                 gridLines: {
-                     drawOnChartArea: false
-                 }
-             }],
-             yAxes: [{
-             ticks: {
-                min: 0,
-                display: false 
-             },
-            gridLines: {
-                drawOnChartArea: false
-            }
-            }]
-         },
-            title: {
-                display: true,
-                text: `${currentUser}'s Number of Requests Due within 5 Days: Open vs. Completed`
-            },
-            layout: {
-                padding: {
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0
-                }
-            }
-        }
-    });
-    };
-    dueCurrentWeek();
-
 // Gets date frequency
 async function getOccurences(func) {
     const arr = await func;
@@ -258,7 +127,138 @@ const allReqsCreated = async () => {
     return createdX;
 };
 
-    // Renders Chart 3
+// Renders Chart 1
+const createAssignedChart = async () => {
+    const numAssigned = await getAssigned(); 
+    const numCreated  = await getCreated();  
+    const currentUser = await getUser();
+       const ctx = document.getElementById('chart1').getContext('2d');
+        const chart = new Chart(ctx, {
+            label: 'Chart 1',
+            type: 'bar',
+            data: {
+                labels: ["Assigned vs. Created"],
+                datasets: [{
+                    label: ['Assigned'],
+                    data: [numAssigned],
+                    backgroundColor: [
+                        'green',
+                     ],
+                    borderColor: [
+                        'black',
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: ['Created'],
+                    data: [numCreated],
+                    backgroundColor: [
+                        
+                        'yellow',
+                     ],
+                    borderColor: [
+                        'black',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            aspectRatio: 1,
+         scales: {
+             yAxes: [{
+             ticks: {
+                min: 0, 
+             },
+             scaleLabel: {
+                display: true,
+                labelString: 'Requests',
+            }
+            }]
+         },
+            title: {
+                display: true,
+                text: `${currentUser}'s Number of Open Requests: Assigned-To and Created-By`
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 20,
+                    bottom: 0
+                }
+            }
+        }
+    });
+    };
+    createAssignedChart();
+
+// Renders Chart 2
+const dueCurrentWeek = async () => {
+    const numPending = await getPending(); 
+    const numCompleted = await getCompleted();
+    const currentUser = await getUser();
+       const ctx = document.getElementById('chart2').getContext('2d');
+        const chart = new Chart(ctx, {
+            label: 'Chart 2',
+            type: 'doughnut',
+            data: {
+                labels: ['Open','Completed'],
+                datasets: [{
+                    labels: ['Blank'],
+                    data: [numPending, numCompleted],
+                    backgroundColor: [
+                        'yellow',
+                        'green',
+                     ],
+                    borderColor: [
+                        'black',
+                        'black',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+         scales: {
+             xAxes : [{
+                ticks: {
+                    display: false 
+                 },
+                 gridLines: {
+                     drawOnChartArea: false
+                 }
+             }],
+             yAxes: [{
+             ticks: {
+                min: 0,
+                display: false 
+             },
+            gridLines: {
+                drawOnChartArea: false
+            }
+            }]
+         },
+            title: {
+                display: true,
+                text: `${currentUser}'s Number of Requests Due within 5 Days: Open vs. Completed`
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 20,
+                    bottom: 0
+                }
+            }
+        }
+    });
+    };
+    dueCurrentWeek();
+
+// Renders Chart 3
 const createTimelineChart = async () => {
     const numAssigned = await getOccurences(allReqsCreated());
     const numCreated  = await getOccurences(allReqsAssigned());   
@@ -285,7 +285,7 @@ const createTimelineChart = async () => {
       }]
   },
   options: {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: false,
     scales: {
       xAxes: [{
@@ -313,11 +313,11 @@ const createTimelineChart = async () => {
         padding: {
             left: 0,
             right: 0,
-            top: 0,
+            top: 20,
             bottom: 0
         }
   }
   }
 });
-};
+    };
     createTimelineChart();

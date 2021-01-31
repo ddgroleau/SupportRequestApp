@@ -37,9 +37,25 @@ h4 {
 
 #newemail, #saveemail, #passwordlabel, #savepassword, #newpassword, #confirmnewpassword, #confirmlabel, #passwordreqs { 
 visibility: hidden;
-};
+}
 
+.chart1 {
+    border: solid black 1px;
+    width:max-content;
+    height: max-content;
+    }
 
+.chart2 {
+    border: solid black 1px;
+    width:max-content;
+    height: max-content;
+    }
+
+.chart3 {
+border: solid black 1px;
+width:max-content;
+height: max-content;
+}
 
 
 
