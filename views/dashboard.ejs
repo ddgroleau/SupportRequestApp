@@ -5,46 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 <body>
-    <!-- Begin Banner-Style Header --> 
-    <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
+    <div class="dash-parent-container">
+        <div class="nav-banner">
+                <div class="banner">
+                <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
+                </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="profile/requests"><button>My Requests</button></a></li>
+                    <li><a href="profile/analytics"><button>Analytics</button></a></li>
+                    <li><button id="searchRequest">Request Search</button></li>
+                    <li> <a href="/profile"><button>Update Profile</button></a></li>
+                    <li><a href="/logout"><button>Logout</button></a></li>
+                </ul>
+            </div>
+        </div>
 
-    <hr>
-    <!-- End Banner-Style Header --> 
+        <div class="queueTable">
+            <!-- Begin Queue Table --> 
+                <h4>Support Requests Assigned to You</h4>
+                    <table id="queue">
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Creation Date</th>
+                            <th>Request Summary</th>
+                            <th>Assigned To</th>
+                            <th>Created By</th>
+                            <th>Status</th>
+                            <th>Date Due</th>
+                            <th>Comments</th>
+                            <th>Tools</th>
+                        </tr>
+                    </table>
+                <br>
+            <!-- End Queue Table --> 
+        </div>
     
-    <a href="profile/requests"><button>My Requests</button></a>
-    <a href="profile/analytics"><button>Analytics</button></a>
-    <button id="searchRequest">Request Search</button>
-    <a href="/profile"><button>Update Profile</button></a>
-    <a href="/logout"><button>Logout</button></a>
-     
-    <!-- Begin Queue Table --> 
-    <h4>Support Requests Assigned to You</h4>
-    <table id="queue">
-          <tr>
-              <th>Request ID</th>
-              <th>Type</th>
-              <th>Category</th>
-              <th>Creation Date</th>
-              <th>Request Summary</th>
-              <th>Assigned To</th>
-              <th>Created By</th>
-              <th>Status</th>
-              <th>Date Due</th>
-              <th>Comments</th>
-              <th>Tools</th>
-          </tr>
-        </table>
-    <br>
-    <!-- End Queue Table --> 
-
-    <button id="create">CREATE<br>Request</button>
+        <button id="create">CREATE<br>Request</button>
     <br>
     <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
     <br>
 
+</div>
+    
+    
     <!----- Create Request Form Modal -------------------------->
     <div id="createModal" class="modal">
 
