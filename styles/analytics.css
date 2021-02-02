@@ -44,7 +44,8 @@
     font-size: 22px;
     width: auto;
     height: max-content;
-    padding: 1vh 6.1%;
+    padding: 1vh 3%;
+    margin: 0 1vh;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.616);
 }

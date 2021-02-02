@@ -44,7 +44,8 @@
     font-size: 22px;
     width: auto;
     height: max-content;
-    padding: 1vh 6.1%;
+    padding: 1vh 3%;
+    margin: 0 1vh;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.616);
 }
@@ -89,6 +90,15 @@ h1 {
     padding: 1vh 3vh;
     justify-items: center;
     border-bottom: solid rgb(233, 221, 221) 3px;
+}
+
+#closedrequests th {
+    background-color: rgb(19, 76, 76);
+    color: rgba(255, 255, 255, 0.685);
+}
+
+#closedrequests {
+    margin-left: 9vh;
 }
 
 .open-request-table tr {
@@ -142,4 +152,9 @@ h4 {
     justify-self: flex-start;
     font-size: 22px;
     margin-left: 6vh;
+}
+
+#closed-header {
+    margin-left: 10vh;
+    margin-top: 3vh;;
 }
