@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+.dash-parent-container { 
+    display: grid;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    background-color: white;
+}
+
+.dashboard-banner-icon {
+    grid-column: 1/2;
+    grid-row: 1/1;
+    height: 15vh;
+    width: auto;
+}
+
+.banner {
+    grid-column: 1/13;
+    grid-row: 1/2;
+    background-color: rgb(69, 183, 175);
+
+}
+
+.navbar {
+    grid-column: 1/13;
+    grid-row: 2/2;
+    background-color: rgba(94, 92, 92, 0.808);
+    margin-bottom: 20vh;
+    box-shadow: 0vh 1vh 3vh grey;
+}
+
+.navbar button {
+    background-color: rgba(94, 92, 92, 0.295);
+    border: 0;
+    font-family: roboto, sans-serif;
+    font-size: 22px;
+    width: 19.77%;
+    padding: 1vh 0vh;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.616);
+}
+
+.navbar button:hover {
+transition: 0.3s;
+transform: translateY(0.4vh);
+background-color: rgb(69, 183, 175);
+border-radius: 0.5vh;
+color: white;
+}
+
+h1 {
+    grid-column: 3/6;
+    grid-row: 1/2;
+    align-self: center;
+    font-family: roboto, sans-serif;
+    font-size: 220%;
+}
+
+.queue-table {
+    grid-column: 3/9;
+    grid-row: 5/10;
+
+}
+
+.createbtn {
+    grid-column: 3/6;
+    grid-row: 4/4;
+
+}
+

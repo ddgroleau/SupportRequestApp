@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/modal.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -11,22 +12,33 @@
 </head>
 <body>
     <div class="dash-parent-container">
-        <div class="nav-banner">
-                <div class="banner">
-                <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
-                </div>
-            <div class="navbar">
-                <ul>
-                    <li><a href="profile/requests"><button>My Requests</button></a></li>
-                    <li><a href="profile/analytics"><button>Analytics</button></a></li>
-                    <li><button id="searchRequest">Request Search</button></li>
-                    <li> <a href="/profile"><button>Update Profile</button></a></li>
-                    <li><a href="/logout"><button>Logout</button></a></li>
-                </ul>
+      
+            <div class="banner">
+               
             </div>
+
+            <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
+            <img class="dashboard-banner-icon" src="/images/database-teal.png">
+
+            <div class="navbar">
+
+                <a href="profile/requests"><button >My Requests</button></a>
+                    <a href="profile/analytics"><button >Analytics</button></a>
+                    <button class="navbtn" id="searchRequest">Request Search</button>
+                    <a href="/profile"><button class="navbtn">Update Profile</button></a>
+                    <a href="/logout"><button class="navbtn">Logout</button></a>
+
+            </div>
+        
+
+        <div class="createbtn">
+            <button id="create">CREATE<br>Request</button>
+            <br>
+            <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
+            <br>
         </div>
 
-        <div class="queueTable">
+        <div class="queue-table">
             <!-- Begin Queue Table --> 
                 <h4>Support Requests Assigned to You</h4>
                     <table id="queue">
@@ -47,11 +59,6 @@
                 <br>
             <!-- End Queue Table --> 
         </div>
-    
-        <button id="create">CREATE<br>Request</button>
-    <br>
-    <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
-    <br>
 
 </div>
     
