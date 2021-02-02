@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/analytics.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>My Analytics - Support Request Tool</title>
 </head>
 <body>
-    <h1>My Analytics</h1>
-    <hr>
-    <a href="/dashboard"><button>Dashboard</button></a>
-    <a href="/profile/requests"><button>My Requests</button></a>
-    <button id="searchRequest">Request Search</button>
-    <a href="/profile"><button>Update Profile</button></a>
-    <a href="/logout"><button>Logout</button></a>
+    <div class="dash-parent-container">
+      
+        <div class="banner"></div>
 
-    <div id="requestnum" class="chart1">
-        <canvas id="chart1"></canvas>
-    </div>
-    
-    <div id="duecurrentweek" class="chart2">
-        <canvas id="chart2"></canvas>
-    </div>
+            <h1>My Analytics</h1>
+            <img class="dashboard-banner-icon" src="/images/database-blue.png">
+            
+            <div class="navbar">
+                <a href="/dashboard"><button>Dashboard</button></a>
+                <a href="/profile/requests"><button>My Requests</button></a>
+                <button id="searchRequest">Request Search</button>
+                <a href="/profile"><button>Update Profile</button></a>
+                <a href="/logout"><button>Logout</button></a>
+             </div>
 
-    <div id="usertimeline" class="chart3">
-        <canvas id="chart3"></canvas>
+                <div class="charts-container"></div>
+                    <div id="requestnum">
+                        <canvas id="chart1" class="chart1"></canvas>
+                    </div>
+                    
+                    <div id="duecurrentweek">
+                        <canvas id="chart2" class="chart2"></canvas>
+                    </div>
+
+                    <div id="usertimeline">
+                        <canvas id="chart3"  class="chart3"></canvas>
+                    </div>
+            </div>
+
     </div>
     
 <!----- Search Request Modal -------------------------->

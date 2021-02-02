@@ -142,7 +142,7 @@ const createAssignedChart = async () => {
                     label: ['Assigned'],
                     data: [numAssigned],
                     backgroundColor: [
-                        'green',
+                        'teal',
                      ],
                     borderColor: [
                         'black',
@@ -154,7 +154,7 @@ const createAssignedChart = async () => {
                     data: [numCreated],
                     backgroundColor: [
                         
-                        'yellow',
+                        'aquamarine',
                      ],
                     borderColor: [
                         'black',
@@ -185,7 +185,7 @@ const createAssignedChart = async () => {
                 padding: {
                     left: 0,
                     right: 0,
-                    top: 20,
+                    top: 30,
                     bottom: 0
                 }
             }
@@ -209,8 +209,8 @@ const dueCurrentWeek = async () => {
                     labels: ['Blank'],
                     data: [numPending, numCompleted],
                     backgroundColor: [
-                        'yellow',
-                        'green',
+                        'cadetblue',
+                        'turquoise',
                      ],
                     borderColor: [
                         'black',
@@ -222,6 +222,7 @@ const dueCurrentWeek = async () => {
         options: {
             responsive: false,
             maintainAspectRatio: false,
+            aspectRatio: 1,
          scales: {
              xAxes : [{
                 ticks: {
@@ -249,7 +250,7 @@ const dueCurrentWeek = async () => {
                 padding: {
                     left: 0,
                     right: 0,
-                    top: 20,
+                    top: 30,
                     bottom: 0
                 }
             }
@@ -271,15 +272,15 @@ const createTimelineChart = async () => {
     datasets: [{
       label: ['Assigned On'],
       data: numAssigned,
-      backgroundColor: 'yellow',
-      borderColor: 'yellow',
+      backgroundColor: 'darkturquoise',
+      borderColor: 'teal',
       borderWidth: 1,
       fill: false
     },{
         label: ['Created On'],
         data: numCreated,
-        backgroundColor: 'green',
-        borderColor: 'green',
+        backgroundColor: 'teal',
+        borderColor: 'darkturquoise',
         borderWidth: 1,
         fill: false
       }]
@@ -287,6 +288,7 @@ const createTimelineChart = async () => {
   options: {
     responsive: false,
     maintainAspectRatio: false,
+    aspectRatio: 1,
     scales: {
       xAxes: [{
         type: 'time',
@@ -313,7 +315,7 @@ const createTimelineChart = async () => {
         padding: {
             left: 0,
             right: 0,
-            top: 20,
+            top: 30,
             bottom: 0
         }
   }
