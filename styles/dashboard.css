@@ -7,7 +7,7 @@
     display: grid;
     height: 100vh;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     background-color: white;
 }
 
@@ -21,25 +21,28 @@
 .banner {
     grid-column: 1/13;
     grid-row: 1/2;
-    background-color: rgb(69, 183, 175);
-
+    background-color:rgb(69, 183, 175);
 }
 
 .navbar {
     grid-column: 1/13;
     grid-row: 2/2;
     background-color: rgba(94, 92, 92, 0.808);
-    margin-bottom: 20vh;
+    margin-bottom: 0;
     box-shadow: 0vh 1vh 3vh grey;
+    height: max-content;
+    position: relative;
+    text-align: center;
 }
 
 .navbar button {
-    background-color: rgba(94, 92, 92, 0.295);
+    background-color: rgba(94, 92, 92, 0.155);
     border: 0;
     font-family: roboto, sans-serif;
     font-size: 22px;
-    width: 19.77%;
-    padding: 1vh 0vh;
+    width: auto;
+    height: max-content;
+    padding: 1vh 6.1%;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.616);
 }
@@ -60,15 +63,113 @@ h1 {
     font-size: 220%;
 }
 
-.queue-table {
-    grid-column: 3/9;
-    grid-row: 5/10;
+h4 {
+    grid-column: 1/9;
+    grid-row: 4/4;
+    font-family: roboto, sans-serif;
+    align-self: flex-end;
+    justify-self: flex-start;
+    font-size: 22px;
+    margin-left: 6vh;
+}
 
+.createbtn-container {
+margin-left: 50%;
 }
 
 .createbtn {
-    grid-column: 3/6;
-    grid-row: 4/4;
-
+    text-align: center;
+    padding: 0vh 5vh 1vh 5vh;
+    font-family: roboto, sans-serif;
+    background-color: white;
+    border: solid rgb(69, 183, 175) 3px;
+    box-shadow: 0vh .5vh 2vh grey;
+    border-radius: 4vh;
+    font-size: 16px;
+    color: rgb(97, 96, 96);
 }
+
+.createbtn img {
+    height: 75px; 
+    width: 75px;
+    vertical-align: middle;
+    margin: 1vh 2vh;
+}
+
+.createbtn:hover {
+    transition: 0.3s;
+    background-color: rgb(69, 183, 175);
+    color: white;
+    box-shadow: 0vh 1vh 3vh rgb(76, 233, 238);
+    transform: translateY(7px);
+}
+
+.queue-table-container {
+    grid-column: 1/10;
+    grid-row: 5/12;
+}
+.queue-table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: roboto, sans-serif;
+    min-width: 400px;
+    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin: 1vh 0vh 0vh 5vh;
+    height: max-content;
+    width: 100%;
+    border: solid rgba(94, 92, 92, 0.192) 3px;
+}
+
+.queue-table th {
+    background-color: rgb(69, 183, 175);
+    font-size: 18px;
+    padding: 1vh 3vh;
+    justify-items: center;
+    border-bottom: solid rgb(233, 221, 221) 3px;
+}
+
+.queue-table tr {
+    background-color: whitesmoke;
+    border-bottom: solid rgb(233, 221, 221) 3px;
+}
+
+
+.queue-table button {
+    padding: .5vh;
+    border: 0;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.fa-check{
+    color:green;
+}
+
+.fa-check:hover {
+    color: rgb(53, 228, 53);
+    transition: 0.1s;
+    transform: translateX(-2px);
+}
+
+.fa-skull {
+    color: rgb(3, 66, 24);
+}
+
+.fa-skull:hover {
+    color: rgb(167, 34, 11);
+    transition: 0.1s;
+    transform: translateX(-2px);
+}
+
+.fa-tools {
+    color:rgb(9, 129, 109);
+}
+
+.fa-tools:hover {
+    color:rgb(10, 192, 162);
+    transition: 0.1s;
+    transform: translateX(-2px);
+}
+
 

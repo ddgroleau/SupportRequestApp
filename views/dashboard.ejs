@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
@@ -18,12 +19,12 @@
             </div>
 
             <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
-            <img class="dashboard-banner-icon" src="/images/database-teal.png">
+            <img class="dashboard-banner-icon" src="/images/database-blue.png">
 
             <div class="navbar">
 
                 <a href="profile/requests"><button >My Requests</button></a>
-                    <a href="profile/analytics"><button >Analytics</button></a>
+                    <a href="profile/analytics"><button >My Analytics</button></a>
                     <button class="navbtn" id="searchRequest">Request Search</button>
                     <a href="/profile"><button class="navbtn">Update Profile</button></a>
                     <a href="/logout"><button class="navbtn">Logout</button></a>
@@ -31,17 +32,11 @@
             </div>
         
 
-        <div class="createbtn">
-            <button id="create">CREATE<br>Request</button>
-            <br>
-            <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
-            <br>
-        </div>
+        <h4>Support Requests Assigned to You</h4>
 
-        <div class="queue-table">
+        <div class="queue-table-container">
             <!-- Begin Queue Table --> 
-                <h4>Support Requests Assigned to You</h4>
-                    <table id="queue">
+                    <table id="queue"class="queue-table" >
                         <tr>
                             <th>Request ID</th>
                             <th>Type</th>
@@ -58,6 +53,12 @@
                     </table>
                 <br>
             <!-- End Queue Table --> 
+            <div class="createbtn-container">
+                <button id="create" class="createbtn"><img src="/images/datebase-color-teal.png"><br>Create New Request</button>
+                <br>
+                <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
+                <br>
+            </div>
         </div>
 
 </div>
