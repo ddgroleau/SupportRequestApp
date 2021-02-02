@@ -48,17 +48,20 @@ const generateTable = async () => {
         let rowID = queue[row].id;
         let updateButton = document.createElement("button")
         updateButton.id = `update${rowID}`;
-        updateButton.textContent = "New Comment"
+        updateButton.innerHTML = '<i class="fas fa-tools fa-lg"></i>';
+        updateButton.title = "Update Comments";
         updateButton.setAttribute("class","updateButton");
         
         let rejectButton = document.createElement("button")
         rejectButton.id = `reject${rowID}`;
-        rejectButton.textContent = "Delete"
+        rejectButton.title = "Delete Request"
+        rejectButton.innerHTML = '<i class="fas fa-trash-alt fa-lg"></i>';
         rejectButton.setAttribute("class","rejectButton");
   
         let resolveButton = document.createElement("button")
         resolveButton.id = `resolve${rowID}`;
-        resolveButton.textContent = "Complete"
+        resolveButton.tile = "Complete Request";
+        resolveButton.innerHTML = '<i class="fas fa-check fa-lg"></i>';
         resolveButton.setAttribute("class","resolveButton");
         
         let tools = document.createElement("td")

@@ -65,52 +65,12 @@ h1 {
     font-size: 220%;
 }
 
-h4 {
-    grid-column: 1/9;
-    grid-row: 4/4;
-    font-family: roboto, sans-serif;
-    align-self: flex-end;
-    justify-self: flex-start;
-    font-size: 22px;
-    margin-left: 6vh;
-}
-
-.createbtn-container {
-margin-left: 50%;
-}
-
-.createbtn {
-    text-align: center;
-    padding: 0vh 5vh 1vh 5vh;
-    font-family: roboto, sans-serif;
-    background-color: white;
-    border: solid rgb(69, 183, 175) 3px;
-    box-shadow: 0vh .5vh 2vh grey;
-    border-radius: 4vh;
-    font-size: 16px;
-    color: rgb(97, 96, 96);
-}
-
-.createbtn img {
-    height: 75px; 
-    width: 75px;
-    vertical-align: middle;
-    margin: 1vh 2vh;
-}
-
-.createbtn:hover {
-    transition: 0.3s;
-    background-color: rgb(69, 183, 175);
-    color: white;
-    box-shadow: 0vh 1vh 3vh rgb(76, 233, 238);
-    transform: translateY(7px);
-}
-
-.queue-table-container {
+.open-request-container {
     grid-column: 1/10;
-    grid-row: 5/12;
+    grid-row: 4/12;
+ 
 }
-.queue-table {
+.open-request-table {
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: roboto, sans-serif;
@@ -123,7 +83,7 @@ margin-left: 50%;
     border: solid rgba(94, 92, 92, 0.192) 3px;
 }
 
-.queue-table th {
+.open-request-table th {
     background-color: rgb(69, 183, 175);
     font-size: 18px;
     padding: 1vh 3vh;
@@ -131,13 +91,13 @@ margin-left: 50%;
     border-bottom: solid rgb(233, 221, 221) 3px;
 }
 
-.queue-table tr {
+.open-request-table tr {
     background-color: whitesmoke;
     border-bottom: solid rgb(233, 221, 221) 3px;
 }
 
 
-.queue-table button {
+.open-request-table button {
     padding: .5vh;
     border: 0;
     background-color: whitesmoke;
@@ -154,11 +114,11 @@ margin-left: 50%;
     transform: translateX(-2px);
 }
 
-.fa-skull {
+.fa-trash-alt {
     color: rgb(3, 66, 24);
 }
 
-.fa-skull:hover {
+.fa-trash-alt:hover {
     color: rgb(167, 34, 11);
     transition: 0.1s;
     transform: translateX(-2px);
@@ -174,4 +134,12 @@ margin-left: 50%;
     transform: translateX(-2px);
 }
 
-
+h4 {
+    grid-column: 1/9;
+    grid-row: 4/4;
+    font-family: roboto, sans-serif;
+    align-self: flex-end;
+    justify-self: flex-start;
+    font-size: 22px;
+    margin-left: 6vh;
+}

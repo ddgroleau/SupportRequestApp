@@ -3,62 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/user-requests.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>My Requests - Support Request Tool</title>
 </head>
 <body>
-    <h1>My Requests</h1>
-    <hr>
-    
-    <a href="/dashboard"><button>Dashboard</button></a>
-    <a href="/profile/analytics"><button>My Analytics</button></a>
-    <button id="searchRequest">Request Search</button>
-    <a href="/profile"><button>Update Profile</button></a>
-    <a href="/logout"><button>Logout</button></a>
-    
-    
-    <p><span><%=(typeof message!='undefined')? message:''%></span></p>
+    <div class="dash-parent-container">
+      
+        <div class="banner"></div>
 
-        <!-- Begin Open Requests Table --> 
-        <h4>Your Open Support Requests</h4>
-        <table id="openrequests">
-              <tr>
-                  <th>Request ID</th>
-                  <th>Type</th>
-                  <th>Category</th>
-                  <th>Creation Date</th>
-                  <th>Request Summary</th>
-                  <th>Assigned To</th>
-                  <th>Created By</th>
-                  <th>Status</th>
-                  <th>Date Due</th>
-                  <th>Comments</th>
-                  <th>Tools</th>
-              </tr>
-            </table>
-        <br>
-        <!-- End Open Requests Table --> 
+        <h1>My Requests</h1>
+        <img class="dashboard-banner-icon" src="/images/database-blue.png">
+        
+        <div class="navbar">
+            <a href="/dashboard"><button>Dashboard</button></a>
+            <a href="/profile/analytics"><button>My Analytics</button></a>
+            <button id="searchRequest">Request Search</button>
+            <a href="/profile"><button>Update Profile</button></a>
+            <a href="/logout"><button>Logout</button></a>
+        </div>
 
-                <!-- Begin Closed Requests Table --> 
-                <h4>Your Closed Support Requests</h4>
-                <table id="closedrequests">
-                      <tr>
-                          <th>Request ID</th>
-                          <th>Type</th>
-                          <th>Category</th>
-                          <th>Creation Date</th>
-                          <th>Request Summary</th>
-                          <th>Assigned To</th>
-                          <th>Created By</th>
-                          <th>Status</th>
-                          <th>Date Due</th>
-                          <th>Comments</th>
-                      </tr>
+            <!-- Begin Open Requests Table --> 
+
+            <div class="open-request-container">
+                <h4>Your Open Support Requests</h4>
+                <table id="openrequests" class="open-request-table">
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Creation Date</th>
+                        <th>Request Summary</th>
+                        <th>Assigned To</th>
+                        <th>Created By</th>
+                        <th>Status</th>
+                        <th>Date Due</th>
+                        <th>Comments</th>
+                        <th>Tools</th>
+                    </tr>
                     </table>
                 <br>
-                <!-- End Closed Requests Table --> 
+            
+            <!-- End Open Requests Table --> 
+
+                    <!-- Begin Closed Requests Table --> 
+                    <h4>Your Closed Support Requests</h4>
+                    <table id="closedrequests" class="open-request-table">
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Creation Date</th>
+                            <th>Request Summary</th>
+                            <th>Assigned To</th>
+                            <th>Created By</th>
+                            <th>Status</th>
+                            <th>Date Due</th>
+                            <th>Comments</th>
+                        </tr>
+                        </table>
+                    <br>
+                    <!-- End Closed Requests Table --> 
+                </div>
+    </div>
     
+
         <!----- Update Request Modal -------------------------->
         <div id="updateModal" class="modal">
 
@@ -82,9 +94,9 @@
                     <br>
                     <button form="updateform" type="submit" id="updatebtn">Save</button>
         
-                </div>
-        
             </div>
+        
+        </div>
             <!------- End of Modal --------------------------------->
 
             <!----- Search Request Modal -------------------------->
@@ -111,8 +123,8 @@
                 <table id="searchtable">
                     </table>
 
-</div>
         </div>
+    </div>
         <!------- End of Modal --------------------------------->
 
             <script src="../scripts/user-requests.js"></script>
