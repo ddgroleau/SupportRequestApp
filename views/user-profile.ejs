@@ -3,38 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/user-profile.css">
     <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Profile - Support Request Tool</title>
 </head>
 <body>
-    <h1>My Profile</h1>
-    <hr>
-    <a href="/dashboard"><button>Home</button></a>
-    <a href=""><button class="navbtn">How-To</button></a>
-    <a href="/profile/requests"><button>My Requests</button></a>
-    <a href="/profile/analytics"><button>My Analytics</button></a>
-    <button id="searchRequest">Request Search</button>
-    <a href="/logout"><button>Logout</button></a>
-    <br>
-    <br>
-    <p id="displayAlert"></p>
-    <br>
-    <p>Current Email: <span id="useremail"></span></p>
-    <br>
-    <button id="newemailbtn">Change Email</button>
-    <button id="newpasswordbtn">Change Password</button>
+    <div class="dash-parent-container">
+      
+        <div class="banner"></div>
     
-    <input id="newemail" value="Enter Your New Email" type="email">
-    <button id="saveemail">Save Email</button>
-    <br>
-    <label for="newpassword" id="passwordlabel">Enter Your New Password Below:</label>
-    <input id="newpassword" type="password">
-    <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password:</label>
-    <input id="confirmnewpassword" type="password">
-    <button id="savepassword">Save Password</button>
-    <p id="passwordreqs">Your password must be at least eight characters, and must contain at least one number, one uppercase letter, and one lowercase letter.</p>
+        <h1>My Profile</h1>
+        <img class="dashboard-banner-icon" src="/images/database-blue.png">
+    
+        <div class="navbar">
+            <a href="/dashboard"><button>Home</button></a>
+            <a href=""><button class="navbtn">How-To</button></a>
+            <a href="/profile/requests"><button>My Requests</button></a>
+            <a href="/profile/analytics"><button>My Analytics</button></a>
+            <button id="searchRequest">Request Search</button>
+            <a href="/logout"><button>Logout</button></a>
+        </div>
 
+        <div class="profile-container">
+            <p>Your Username is:  <span id="username"></span></p>
+            <p>Current Email:  <span id="email"></span></p>
+
+            <button id="newemailbtn">Change Email</button>
+            <button id="newpasswordbtn">Change Password</button>
+        </div> 
+
+
+            <p id="displayAlert"></p>
+
+        <div class="hidden-options">
+            <input id="newemail" value="Enter Your New Email" type="email">
+            <button id="saveemail">Save Email</button>
+            <br>
+            <label for="newpassword" id="passwordlabel">Enter Your New Password Below:</label>
+            <input id="newpassword" type="password">
+            <br>
+            <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password:</label>
+            <input id="confirmnewpassword" type="password">
+            <br>
+            <p id="passwordreqs">Your password must be at least eight characters, and must contain at least one number, one uppercase letter, and one lowercase letter.</p>
+            <button id="savepassword">Save Password</button>
+        </div>
+    
+    </div>
     
 <!----- Search Request Modal -------------------------->
 <div id="searchModal" class="modal">

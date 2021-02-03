@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.dash-parent-container { 
+    display: grid;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    background-color: white;
+}
+
+.dashboard-banner-icon {
+    grid-column: 1/2;
+    grid-row: 1/1;
+    height: 15vh;
+    width: auto;
+}
+
+.banner {
+    grid-column: 1/13;
+    grid-row: 1/2;
+    background-color:rgb(69, 183, 175);
+}
+
+.navbar {
+    grid-column: 1/13;
+    grid-row: 2/2;
+    background-color: rgba(94, 92, 92, 0.808);
+    margin-bottom: 0;
+    box-shadow: 0vh 1vh 3vh grey;
+    height: max-content;
+    position: relative;
+    text-align: center;
+}
+
+.navbar button {
+    background-color: rgba(94, 92, 92, 0.052);
+    border: 0;
+    font-family: roboto, sans-serif;
+    font-size: 22px;
+    width: auto;
+    height: max-content;
+    padding: 1vh 3%;
+    margin: 0 1vh;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.616);
+}
+
+.navbar button:hover {
+transition: 0.3s;
+transform: translateY(0.4vh);
+background-color: rgb(69, 183, 175);
+border-radius: 0.5vh;
+color: white;
+}
+
+h1 {
+    grid-column: 3/6;
+    grid-row: 1/2;
+    align-self: center;
+    font-family: roboto, sans-serif;
+    font-size: 220%;
+}
+
+.profile-container {
+    grid-column: 4/8;
+    grid-row: 4/4;
+    font-family: roboto, sans-serif;
+}
+
+.profile-container p {
+    font-size: 24px;
+    margin: 2vh 0vh;
+}
+
+.profile-container span {
+    font-size: 26px;
+    margin: 0vh 2vh;
+}
+
+.profile-container button{
+        font-family: roboto, sans-serif;
+        text-align: center;
+        padding: 1vh 5vh 1vh 5vh;
+        font-family: roboto, sans-serif;
+        background-color: rgb(69, 183, 175);
+        border: solid rgb(69, 183, 175) 3px;
+        box-shadow: 0vh .5vh 2vh grey;
+        border-radius: 4vh;
+        font-size: 16px;
+        color: white;
+    }
+    
+ .profile-container button:hover {
+        transition: 0.3s;
+        background-color: white;
+        color: rgb(69, 183, 175);
+        box-shadow: 0vh 1vh 3vh rgb(76, 233, 238);
+        transform: translateY(7px);
+}
+
+.hidden-options {
+    grid-column: 4/9;
+    grid-row: 6/12;
+    font-family: 'Roboto', sans-serif; 
+    border: solid black 1px;
+    padding: 2vh;
+    height: max-content;
+    width: auto;
+}
+
+.hidden-options input {
+    font-family: 'Roboto', sans-serif; 
+    width: 50%;
+    border: 0;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.356);
+    outline: 0;
+    color: black;
+    padding:  3vh 0vh;
+    background: transparent;
+    margin: 2vh;
+    font-size: 14px;
+}
+
+.hidden-options p {
+    width: 30%;
+   font-size: 12px;
+   text-align: center;
+}
+
+#savepassword {
+    margin-left: 50%;
+    font-family: roboto, sans-serif;
+    text-align: center;
+    padding: 1vh 5vh 1vh 5vh;
+    font-family: roboto, sans-serif;
+    background-color: rgb(69, 183, 175);
+    border: solid rgb(69, 183, 175) 3px;
+    box-shadow: 0vh .5vh 2vh grey;
+    border-radius: 4vh;
+    font-size: 16px;
+    color: white;
+}
+
+.hidden-options  input:hover {
+    transition: 0.1s;
+    border-bottom: 2px solid rgb(41, 187, 172);
+    background-color: rgba(143, 231, 222, 0.336);
+    border-radius: 1vh;
+}

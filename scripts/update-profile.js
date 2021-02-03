@@ -10,6 +10,21 @@ const newPasswordLabel = document.getElementById("passwordlabel");
 const saveEmailBtn = document.getElementById("saveemail");
 const savePasswordBtn = document.getElementById("savepassword");
 const passwordReqs = document.getElementById("passwordreqs");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+
+// Gets User Data and assigns it to DOM element
+const currentUser = async () => {
+    const request = await fetch("/routes/currentUser");
+    const response = await request.json();
+    let user = {
+        username: response.username,
+        email: response.email,
+    };
+    email.innerHTML = user.email;
+    username.innerHTML = user.username;
+};
+currentUser();
 
 // Event Listeners for Update Profile UI
 newEmailBtn.addEventListener("click", event => {
