@@ -24,6 +24,7 @@ const currentUser= require('./routes/current-user');
 const updateRequest= require("./routes/update");
 const deleteRequest= require("./routes/delete");
 const profile= require("./routes/profile");
+const about= require("./routes/about");
 
 // --- EXPRESS SETUP ---
 const app = express();
@@ -74,6 +75,7 @@ app.use("/routes", readRequests);
 app.use("/", registration);
 app.use("/", login)
 app.use("/", dashboard)
+app.use("/", about);
 app.use("/", logout)
 app.use("/", createRequest);
 app.use("/", updateRequest);

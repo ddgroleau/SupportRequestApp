@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>How-To</title>
+</head>
+<body>
+    <div class="dash-parent-container">
+      
+            <div class="banner">
+               
+            </div>
+
+            <h1>About the Support Request Application</h1>
+            <img class="dashboard-banner-icon" src="/images/database-blue.png">
+
+            <div class="navbar">
+                    <a href="/dashboard"><button class="navbtn">Home</button></a>
+                    <a href="profile/requests"><button >My Requests</button></a>
+                    <a href="profile/analytics"><button >My Analytics</button></a>
+                    <button class="navbtn" id="searchRequest">Request Search</button>
+                    <a href="/profile"><button class="navbtn">Update Profile</button></a>
+                    <a href="/logout"><button class="navbtn">Logout</button></a>
+            </div>
+<article>
+    <h2>The Support Request Application</h2>
+   <p>  Managing requests that flow into your email inbox can be difficult at a high volume; 
+       project requirments or important events can be lost or forgotten as the emails pile up.
+       This project was designed to create an environment in which co-workers and collaborators could request support, 
+       organize project requirements, and complete tasks together in a visual manner, 
+       wihtout having to manage their tasks and projects via hundreds of emails in their inbox.</p>
+</article>
+
+   
+   
+   
+   
+   
+   
+        </div>
+
+
+    
+                <!----- Search Request Modal -------------------------->
+        <div id="searchModal" class="modal">
+    
+            <div class="modal-content">
+                  <span id="closeSearch" class="close">&times;</span>
+                  
+                  <center><P>Request Search</P></center>
+           
+                    <label for="searchid">Search Request by ID:</label>
+                    <input id="searchid" value="">
+                    <button id="searchidBtn">Search</button>
+                    <br>
+                    <label for="searchcreator">Search Request by Creator:</label>
+                    <input id="searchcreator" value="">
+                    <button id="searchcreatorbtn">Search</button>
+                    <br>
+                    <label for="searchassignee">Search Request by Assignee:</label>
+                    <input id="searchassignee" value="">
+                    <button id="searchassigneebtn">Search</button>
+                    <br>
+                    <br>
+                    <table id="searchtable">
+                        </table>
+    
+    </div>
+            </div>
+            <!------- End of Modal --------------------------------->
+    
+
+        <script src="../scripts/search.js"></script>
+    </body>
+    </html>

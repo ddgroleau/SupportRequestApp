@@ -77,12 +77,17 @@ function todaysDate() {
     const mm = today.getMonth()+1
     const yyyy = today.getFullYear();
     let date = "";
-    if (mm < 10) {
-    date = `${yyyy}-0${mm}-${dd}`;
+    if (mm < 10 && dd < 10) {
+    date = `${yyyy}-0${mm}-0${dd}`;
+    } else if (dd < 10) {
+    date = `${yyyy}-${mm}-0${dd}`;
+    } else if (mm < 10) {
+      date = `${yyyy}-0${mm}-${dd}`;
     } else { 
     date = `${yyyy}-${mm}-${dd}`; 
     };
     document.getElementById("creationdate").value = date;
+    console.log(date);
     return date;
 }
 todaysDate();

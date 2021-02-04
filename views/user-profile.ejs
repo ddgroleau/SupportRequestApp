@@ -20,7 +20,7 @@
     
         <div class="navbar">
             <a href="/dashboard"><button>Home</button></a>
-            <a href=""><button class="navbtn">How-To</button></a>
+            <a href="/about"><button class="navbtn">About</button></a>
             <a href="/profile/requests"><button>My Requests</button></a>
             <a href="/profile/analytics"><button>My Analytics</button></a>
             <button id="searchRequest">Request Search</button>
@@ -39,17 +39,26 @@
             <p id="displayAlert"></p>
 
         <div class="hidden-options">
-            <input id="newemail" value="Enter Your New Email" type="email">
-            <button id="saveemail">Save Email</button>
-            <br>
-            <label for="newpassword" id="passwordlabel">Enter Your New Password Below:</label>
-            <input id="newpassword" type="password">
-            <br>
-            <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password:</label>
-            <input id="confirmnewpassword" type="password">
-            <br>
-            <p id="passwordreqs">Your password must be at least eight characters, and must contain at least one number, one uppercase letter, and one lowercase letter.</p>
-            <button id="savepassword">Save Password</button>
+            <div class="hidden-options-email">
+                <label for="newemail" id="emaillabel">Enter Your New Email: </label>
+                <input id="newemail" value="your-email@example.com" type="email">
+                <button id="saveemail">Save Email</button>
+                
+            </div>
+
+            <div class="hidden-options-password">
+                <label for="newpassword" id="passwordlabel">Enter Your New Password: </label>
+                <input id="newpassword" type="password">
+                <br>
+                <label for="confirmnewpassword" id="confirmlabel">Re-Enter Your New Password: </label>
+                <input id="confirmnewpassword" type="password">
+            </div>
+
+            <div class="savepassbtn-container">  
+                <button id="savepassword">Save Password</button>  
+                <p id="passwordreqs">Your password must be at least eight characters, and must contain at least one number, one uppercase letter, and one lowercase letter.</p>
+            </div>
+
         </div>
     
     </div>

@@ -3,6 +3,7 @@ const userEmail = document.getElementById("useremail");
 const newEmailBtn = document.getElementById("newemailbtn");
 const newPasswordBtn = document.getElementById("newpasswordbtn");
 const newEmailInput = document.getElementById("newemail");
+const newEmailLabel = document.getElementById("emaillabel");
 const newPasswordInput = document.getElementById("newpassword");
 const confirmNewPassInput = document.getElementById("confirmnewpassword");
 const confirmPassLabel = document.getElementById("confirmlabel");
@@ -30,6 +31,7 @@ currentUser();
 newEmailBtn.addEventListener("click", event => {
     newEmailBtn.style.visibility = "hidden";
     newEmailInput.style.visibility = "visible";
+    newEmailLabel.style.visibility = "visible";
     saveEmailBtn.style.visibility = "visible";
 });
 
@@ -45,6 +47,7 @@ newPasswordBtn.addEventListener("click", event => {
 
 saveEmailBtn.addEventListener("click", event => {
    console.log(`sending email changes to server`);
+   newEmailLabel.style.visibility = "hidden";
    newEmailInput.style.visibility = "hidden";
     saveEmailBtn.style.visibility = "hidden";
     newEmailBtn.style.visibility = "visible";

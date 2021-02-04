@@ -38,7 +38,7 @@
 }
 
 .navbar button {
-    background-color: rgba(94, 92, 92, 0.155);
+    background-color: rgba(94, 92, 92, 0);
     border: 0;
     font-family: roboto, sans-serif;
     font-size: 22px;
@@ -100,11 +100,11 @@ margin-left: 50%;
 }
 
 .createbtn:hover {
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     background-color: rgb(69, 183, 175);
     color: white;
     box-shadow: 0vh 1vh 3vh rgb(76, 233, 238);
-    transform: translateY(7px);
+    transform: translateX(7px);
 }
 
 .queue-table-container {
@@ -115,12 +115,14 @@ margin-left: 50%;
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: roboto, sans-serif;
-    min-width: 400px;
+   width: max-content;
     box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
     text-align: center;
     margin: 1vh 0vh 0vh 5vh;
-    height: max-content;
-    width: 100%;
+    min-width: max-content;
+    max-height:400px;
+    display:block;
+    overflow-y: scroll;
     border: solid rgba(94, 92, 92, 0.192) 3px;
 }
 

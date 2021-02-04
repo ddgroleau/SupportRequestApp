@@ -38,7 +38,7 @@
 }
 
 .navbar button {
-    background-color: rgba(94, 92, 92, 0.155);
+    background-color: rgba(94, 92, 92, 0.004);
     border: 0;
     font-family: roboto, sans-serif;
     font-size: 22px;
@@ -75,11 +75,13 @@ h1 {
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: roboto, sans-serif;
-    min-width: 400px;
+    min-width: max-content;
+    max-height:200px;
+    display:block;
+    overflow-y: scroll;
     box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
     text-align: center;
     margin: 1vh 0vh 0vh 5vh;
-    height: max-content;
     width: 100%;
     border: solid rgba(94, 92, 92, 0.192) 3px;
 }
@@ -99,6 +101,10 @@ h1 {
 
 #closedrequests {
     margin-left: 9vh;
+    min-width: max-content;
+    max-height:200px;
+    display:block;
+    overflow-y: scroll;
 }
 
 .open-request-table tr {
