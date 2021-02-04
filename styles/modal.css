@@ -16,36 +16,106 @@
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    font-size: 14px;
-    font-family: monospace;
+    padding: 5px;
+    width: 70%; /* Could be more or less, depending on screen size */
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: solid rgb(68, 65, 65) 3px;
+    box-shadow: 0vh 1vh 3vh rgb(54, 50, 50);
+    border-radius: 2vh;
+  }
+
+  .modal-content h4 {
+    text-align: center;
+    font-size: 28px;
+    color:grey;
+    margin-top: 1vh;
+  }
+
+  .modal-content label {
+    font-style: italic;
+    margin: 2vh 0vh;
   }
   
   /* The Close Button */
   .close {
-    color: #aaa;
+    color: rgb(128, 128, 128);;
     float:right;
-    font-size: 28px;
+    font-size: 55px;
     font-weight: bold;
+    margin: 0 2vh 0 2vh;
   }
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: rgb(166, 21, 21);
     text-decoration: none;
     cursor: pointer;
   }
 
   input {
-    font-size: 10px;
-    font-family: monospace;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    height: 20px;
-  }
+    padding: 1vh;
+    margin: .25vh 0vh .25vh .25vh;
+    font-family: 'Roboto', sans-serif;
+    width: 400px;
+    border: 0;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.356);
+    outline: 0;
+    font-size: 1.3rem;
+    color: black;
+    padding: 7px 0;
+    background: transparent;
+}
 
+input:hover {
+  transition: 0.1s;
+  border-bottom: 2px solid rgb(41, 187, 172);
+  background-color: rgba(143, 231, 222, 0.336);
+  border-radius: 1vh;
+}
+
+  
+.search-container button {
+  border: 0;
+  background-color: white;
+}
+
+.search-container table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: roboto, sans-serif;
+ width: max-content;
+  box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin: 1vh 0vh 0vh 0vh;
+  width: auto;
+  max-height: 600px;
+  display:block;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.search-container th {
+  background-color: rgb(69, 183, 175);
+  font-size: 18px;
+  padding: 1vh 3vh;
+  justify-items: center;
+  border-bottom: solid rgb(233, 221, 221) 3px;
+}
+
+.search-container  tr {
+  background-color: whitesmoke;
+  border-bottom: solid rgb(233, 221, 221) 3px;
+}
+.searchbar {
+  text-align: end;
+  width: 75%;
+  height: auto;
+}
+
+.fa-search:hover {
+  color:rgb(41, 187, 172);
+  transition: .3s;
+  transform: translateX(4px);
+}
   
