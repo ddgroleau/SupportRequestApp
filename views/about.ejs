@@ -47,33 +47,34 @@
 
 
     
-                <!----- Search Request Modal -------------------------->
-        <div id="searchModal" class="modal">
-    
-            <div class="modal-content">
-                  <span id="closeSearch" class="close">&times;</span>
-                  
-                  <center><P>Request Search</P></center>
-           
-                    <label for="searchid">Search Request by ID:</label>
-                    <input id="searchid" value="">
-                    <button id="searchidBtn">Search</button>
-                    <br>
-                    <label for="searchcreator">Search Request by Creator:</label>
-                    <input id="searchcreator" value="">
-                    <button id="searchcreatorbtn">Search</button>
-                    <br>
-                    <label for="searchassignee">Search Request by Assignee:</label>
-                    <input id="searchassignee" value="">
-                    <button id="searchassigneebtn">Search</button>
-                    <br>
-                    <br>
+                          <!----- Search Request Modal -------------------------->
+    <div id="searchModal" class="modal">
+
+        <div class="modal-content">
+              <span id="closeSearch" class="close" title="Click Here to Close">&times;</span>
+              
+              <h4>Request Search</h4>
+              <br>
+                <div class="search-container">
+                    <div class="searchbar">
+                            <label for="searchid">Search Request by ID:</label>
+                            <input id="searchid" value="">
+                            <button id="searchidBtn"><i class="fas fa-search fa-2x"></i></button>
+                            <br>
+                            <label for="searchcreator">Search Request by Creator:</label>
+                            <input id="searchcreator" value="">
+                            <button id="searchcreatorbtn"><i class="fas fa-search fa-2x"></i></button>
+                            <br>
+                            <label for="searchassignee">Search Request by Assignee:</label>
+                            <input id="searchassignee" value="">
+                            <button id="searchassigneebtn"><i class="fas fa-search fa-2x"></i></button>
+                    </div>
                     <table id="searchtable">
                         </table>
-    
-    </div>
-            </div>
-            <!------- End of Modal --------------------------------->
+                </div>
+</div>
+        </div>
+        <!------- End of Modal --------------------------------->
     
 
         <script src="../scripts/search.js"></script>

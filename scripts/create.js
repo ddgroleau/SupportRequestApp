@@ -21,10 +21,14 @@ window.addEventListener("click", event => {
 // Event Listener To Allow User to Input Parent Project for Type: Project Subtask or Assign Request ID
 document.getElementById("type").addEventListener("change", event => {
   const projectid = document.getElementById('projectid');
+  const projectidlabel = document.getElementById('projectidlabel');
   const id = document.getElementById("id");
   if (document.getElementById("type").value === 'Project Subtask') {
     projectid.style.visibility = "visible";
+    projectidlabel.style.visibility = "visible";
   } else {
+    projectid.style.visibility = "hidden";
+    projectidlabel.style.visibility = "hidden";
     // Assigns Request ID based on # of requests in the table
     const idCounter = async () => {
       const id = document.getElementById("id");
