@@ -72,33 +72,36 @@
     </div>
     
 
-        <!----- Update Request Modal -------------------------->
-        <div id="updateModal" class="modal">
+  <!----- Update Request Modal -------------------------->
+  <div id="updateModal" class="modal">
 
-            <div class="modal-content">
-                  <span id="saveUpdate" class="close">&times;</span>
-                  
-                  <center><P>Update Support Request</P></center>
-                  
-                  <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
-                    
-                        <input type="hidden" name="_method" value="PUT">
-    
-                        <label for="updateid">Request ID: </label>
-                        <input type="number" id="updateid" name="updateid" value="" readonly>
-                        
-                  </form>
+    <div class="modal-content" id="updateModal-container">
+        <span id="saveUpdate" class="close">&times;</span>
+          
+        <center><h3>Update Support Request</h3></center>
+          
+          <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
+            
+            <input type="hidden" name="_method" value="PUT">
+            
+            <div class="updateid-container">
+                <label for="updateid">Request ID: </label>
+                <input type="number" id="updateid" name="updateid" value="" readonly>
+            </div>             
+          </form>
+          
+          <div class="updatecomments-container">
+            <label for="updatecomments">Comments: </label>
+            <br>
+            <textarea type="text" id="updatecomments" name="updatecomments" form="updateform"></textarea>
+          </div> 
         
-                    <label for="updatecomments">Comments</label><br>
-                    <textarea type="text" id="updatecomments" name="updatecomments" form="updateform"></textarea>
-                    <br>
-                    <br>
-                    <button form="updateform" type="submit" id="updatebtn">Save</button>
-        
-            </div>
-        
-        </div>
-            <!------- End of Modal --------------------------------->
+          <button form="updateform" type="submit" id="updatebtn"><i class="fas fa-save fa-3x"></i><span>Save</span></button>
+
+    </div>
+
+</div>
+<!------- End of Modal --------------------------------->
 
             <!----- Search Request Modal -------------------------->
             <div id="searchModal" class="modal">
