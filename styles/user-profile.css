@@ -33,7 +33,8 @@
     margin-bottom: 0;
     box-shadow: 0vh 1vh 3vh grey;
     height: max-content;
-    position: relative;
+    display: inline-block;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -70,6 +71,10 @@ h1 {
     grid-column: 4/8;
     grid-row: 4/4;
     font-family: roboto, sans-serif;
+}
+
+.profile-container button{
+    margin: 1vh 0;
 }
 
 .profile-container p {
@@ -144,7 +149,7 @@ padding: 100px;
 }
 
 .savepassbtn-container {
-    float: right;
+display: inline-block;
     width: min-content;
 }
 

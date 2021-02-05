@@ -33,8 +33,10 @@
     margin-bottom: 0;
     box-shadow: 0vh 1vh 3vh grey;
     height: max-content;
-    position: relative;
+    width: 100%;
     text-align: center;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .navbar button {

@@ -12,10 +12,8 @@
 </head>
 <body>
     <div class="dash-parent-container">
-      
-            <div class="banner">
-               
-            </div>
+
+            <div class="banner"></div>
 
             <h1>Welcome <span><%=(typeof message!='undefined')? message:''%>!</span></h1>
             <img class="dashboard-banner-icon" src="/images/database-blue.png">
@@ -28,7 +26,7 @@
                     <a href="/profile"><button class="navbtn">Update Profile</button></a>
                     <a href="/logout"><button class="navbtn">Logout</button></a>
             </div>
-        
+
 
         <h4>Support Requests Assigned to You</h4>
 
@@ -160,7 +158,7 @@
         <div class="modal-content" id="updateModal-container">
             <span id="saveUpdate" class="close">&times;</span>
               
-            <center><h3>Update Support Request</h3></center>
+            <h3>Update Support Request</h3>
               
               <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
                 

@@ -33,7 +33,8 @@
     margin-bottom: 0;
     box-shadow: 0vh 1vh 3vh grey;
     height: max-content;
-    position: relative;
+    display: inline-block;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -75,14 +76,13 @@ h1 {
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: roboto, sans-serif;
-    min-width: max-content;
     max-height:200px;
     display:block;
     overflow-y: scroll;
     box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
     text-align: center;
     margin: 1vh 0vh 0vh 5vh;
-    width: 100%;
+    width: 120%;
     border: solid rgba(94, 92, 92, 0.192) 3px;
 }
 
@@ -101,7 +101,7 @@ h1 {
 
 #closedrequests {
     margin-left: 9vh;
-    min-width: max-content;
+    width: 120%;
     max-height:200px;
     display:block;
     overflow-y: scroll;

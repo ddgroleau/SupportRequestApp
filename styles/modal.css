@@ -15,7 +15,7 @@
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 2% auto; /* 15% from the top and centered */
     padding: 5px;
     width: 70%; /* Could be more or less, depending on screen size */
     font-size: 20px;
@@ -83,21 +83,22 @@
 .search-container table {
   border-collapse: collapse;
   font-size: 0.9em;
-  font-family: roboto, sans-serif;
- width: max-content;
+  font-family: 'Roboto', sans-serif;
+  width: max-content;
   box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
   text-align: center;
-  margin: 1vh 0vh 0vh 0vh;
+  margin: 2vh 3vh 3vh 3vh;
   width: auto;
   max-height: 600px;
   display:block;
   overflow-y: scroll;
   overflow-x: scroll;
+  font-size: 14px !important;
 }
 
 .search-container th {
   background-color: rgb(69, 183, 175);
-  font-size: 18px;
+  font-size: 16px;
   padding: 1vh 3vh;
   justify-items: center;
   border-bottom: solid rgb(233, 221, 221) 3px;
@@ -376,4 +377,8 @@ color: white;
   box-shadow: 0 1vh 2vh teal;
   transition: 0.4s;
   transform: translateY(-2px);
+  }
+
+  h3 {
+    margin-left: 27%;
   }
