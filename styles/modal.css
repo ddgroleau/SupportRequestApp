@@ -129,16 +129,18 @@
   color: rgb(78, 76, 76);
   width: 300px;
   height: auto;
+  min-height: 40px;
 }
 
 #create-container {
-  border: solid rgba(109, 106, 106, 0.559) 3px;
+  min-height: fit-content;
   height: auto;
   width:85%;
-  padding: 2vh 5vh;
+  padding: 1vh 5vh;
   margin: 0 0 0 10vh;
   background-color:rgba(245, 245, 245, 0.559);
   border-radius: 2vh;
+  box-shadow: 0 2vh 5vh teal;
 }
 
 #projectidlabel, #projectid {
@@ -212,4 +214,33 @@ h2 {
   border-bottom: 2px solid rgb(41, 187, 172);
   background-color: rgba(143, 231, 222, 0.336);
   border-radius: 1vh;
+}
+
+#formimg {
+  width: 200px;
+  height: auto;
+  margin: 0 0 0 37%;
+  border-radius: 5vh;
+  position: absolute;
+  top: 400px;
+}
+
+#submitNewReq {
+  text-align: center;
+  font-family: roboto, sans-serif;
+  background-color: white;
+  border: solid rgb(69, 183, 175) 3px;
+  box-shadow: 0vh .5vh 2vh grey;
+  border-radius: 4vh;
+  font-size: 16px;
+  color: rgb(97, 96, 96);
+  height: fit-content;
+  padding: 3vh 1vh 1vh 1vh;
+  margin: 1vh 0 1vh 50% ;
+}
+
+#submitNewReq span {
+ position: absolute;
+ text-align: center;
+ margin: 0 0 30px 10px;
 }
