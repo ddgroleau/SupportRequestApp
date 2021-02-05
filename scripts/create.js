@@ -91,6 +91,7 @@ function todaysDate() {
     date = `${yyyy}-${mm}-${dd}`; 
     };
     document.getElementById("creationdate").value = date;
+    document.getElementById("duedate").value = date;
     console.log(date);
     return date;
 }

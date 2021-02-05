@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -74,7 +73,7 @@
           <form method="POST" action="createRequest" class="createForm" id="createform">
             
             <header id="create-container">
-               
+               <div class="type-container">
                 <label for="type">Request Type</label>
                 <select type="text" id="type" name="type" value="type">
                     <option value="default">Choose a Type</option>
@@ -82,11 +81,12 @@
                     <option value="Project">Project</option>
                     <option value="Project Subtask">Project Subtask</option>
                 </select>
+            </div>
                 <div class="assignedto-container">
                     <label for="assignedto">Assign To: </label>
                     <select type="text" id="assignedto" name="assignedto" value="assignedto"></select>
                 </div>
-                <br>
+                <div class="inline-container">
                 <div class="category-container">
                     <label for="category">Category: </label>
                     <select type="text" id="category" name="category" value="category">
@@ -100,9 +100,11 @@
                         <option value="Warehouse">Warehouse</option>
                         </select>
                     </div>
+                    <div class="projectid-container">
                     <label for="projectid" id="projectidlabel">Project ID: </label>
                     <input type="text" id="projectid" name="projectid" value="">
-                <br>
+                    </div>
+                </div>
                 <div class="auto-fields">  
                 <label for="id">Request ID: </label>
                 <input type="number" id="id" name="id" value="" readonly>
@@ -117,7 +119,7 @@
                 <input type="text" id="status" name="status" value="Pending" readonly>
                 <br>  
             </div>
-            <img id="formimg" src="/images/datebase-color-teal.png">
+            <img id="form-img" src="/images/datebase-color-teal.png">
             <br>
             <div class="requestsummary-container">
                 <label for="requestsummary">Request Summary</label>
@@ -149,25 +151,26 @@
     <!----- Update Request Modal -------------------------->
     <div id="updateModal" class="modal">
 
-        <div class="modal-content">
+        <div class="modal-content" id="updateModal-container">
               <span id="saveUpdate" class="close">&times;</span>
               
-              <center><P>Update Support Request</P></center>
+            <center><h3>Update Support Request</h3></center>
               
               <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
                 
                     <input type="hidden" name="_method" value="PUT">
-
+<div class="updateid-container">
                     <label for="updateid">Request ID: </label>
                     <input type="number" id="updateid" name="updateid" value="" readonly>
-                    
+                </div>             
               </form>
-    
-                <label for="updatecomments">Comments</label><br>
+              <div class="updatecomments-container">
+                <label for="updatecomments">Comments: </label>
+                <br>
                 <textarea type="text" id="updatecomments" name="updatecomments" form="updateform"></textarea>
-                <br>
-                <br>
-                <button form="updateform" type="submit" id="updatebtn">Save</button>
+            </div> 
+            
+            <button form="updateform" type="submit" id="updatebtn"><i class="fas fa-save fa-3x"></i><span>Save</span></button>
     
             </div>
     

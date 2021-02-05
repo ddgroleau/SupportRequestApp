@@ -136,21 +136,49 @@
   min-height: fit-content;
   height: auto;
   width:85%;
-  padding: 1vh 5vh;
-  margin: 0 0 0 10vh;
+  padding: 3vh 5vh;
+  margin: 3vh 0 0 10vh;
   background-color:rgba(245, 245, 245, 0.559);
   border-radius: 2vh;
-  box-shadow: 0 2vh 5vh teal;
+  box-shadow: 0 2vh 5vh cadetblue;
+  border: solid cadetblue 2px;
 }
 
-#projectidlabel, #projectid {
-  visibility: hidden;
+.type-container {
+  width: 50%;
+  display: inline-block;
+  margin-top:2vh;
 }
+
+.inline-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.projectid-container {
+  width: 50%;
+  margin: 1vh 0;
+  visibility: hidden;
+  display: inline-block;
+}
+
 
 .auto-fields input {
   border: 0;
   font-size: 18px !important;
   background-color: transparent;
+  color: white !important;
+}
+
+.auto-fields {
+  border: solid rgba(128, 128, 128, 0.463) 1px;
+  width: fit-content;
+  padding: 0 2vh;
+  box-shadow: 0 0 2px rgb(102, 98, 98);
+  border-radius: 2vh;
+  background-color: cadetblue;
+  color: white;
+  display: block;
 }
 
 .auto-fields label {
@@ -163,9 +191,8 @@
 }
 
 .category-container {
-  float: right;
-  text-align: start;
-  margin-top: 1vh;;
+float: right;
+margin-top: 1vh;
 }
 
 .assignedto-container {
@@ -183,6 +210,8 @@ textarea {
   width: 800px;
   height: 200px;
   padding: 3vh;
+  border: solid rgba(128, 128, 128, 0.356) 2px;
+  border-radius: 2vh;
 }
 
 .datedue-container {
@@ -195,11 +224,11 @@ textarea {
 
 h2 {
   text-align: center;
-  color:rgb(66, 63, 63);
+  color:cadetblue;
   margin: 1vh;
 }
 
-#requestsummary, #duedate, #comments, #projectid {
+#requestsummary, #duedate, #projectid {
   font-family: 'Roboto', sans-serif;
   border: 0;
   border-bottom: 2px solid rgba(128, 128, 128, 0.356);
@@ -207,40 +236,144 @@ h2 {
   font-size: 1.3rem;
   color: black;
   background: transparent;
+  padding: 0vh 1vh;
 }
 
 #requestsummary:hover, #comments:hover, #duedate:hover, #projectid:hover {
   transition: 0.1s;
   border-bottom: 2px solid rgb(41, 187, 172);
-  background-color: rgba(143, 231, 222, 0.336);
+  background-color: rgba(164, 177, 177, 0.312);
   border-radius: 1vh;
 }
 
-#formimg {
+#form-img {
   width: 200px;
   height: auto;
-  margin: 0 0 0 37%;
+  margin: 0 0 0 38%;
   border-radius: 5vh;
   position: absolute;
-  top: 400px;
+  top: 500px;
 }
 
 #submitNewReq {
-  text-align: center;
-  font-family: roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: white;
   border: solid rgb(69, 183, 175) 3px;
   box-shadow: 0vh .5vh 2vh grey;
   border-radius: 4vh;
-  font-size: 16px;
+  font-size: 20px;
   color: rgb(97, 96, 96);
-  height: fit-content;
-  padding: 3vh 1vh 1vh 1vh;
-  margin: 1vh 0 1vh 50% ;
+  padding: 1vh 2vh;
+margin-left: 35%
 }
 
-#submitNewReq span {
- position: absolute;
- text-align: center;
- margin: 0 0 30px 10px;
+#submitNewReq img {
+  vertical-align: middle;
+  padding: 1vh;
 }
+
+#submitNewReq:hover {
+background-color: cadetblue;
+border: cadetblue;
+color: white;
+transition: 0.3s;
+transition-timing-function: ease-in-out;
+transform: translateX(5vh); 
+}
+
+select { 
+  background-color: cadetblue;
+  color: white;
+  padding: 8px;
+  width: 200px;
+  border: solid cadetblue 2px;
+  font-size: 16px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  outline: none;
+  border-radius: 2vh;
+}
+
+option {
+  background-color: white;
+}
+
+select:hover {
+  background-color: white;
+  transition: 0.4s;
+  color: black;
+}
+
+#updateModal-container {
+padding: 3vh;
+}
+
+#updateModal-container input {
+  font-family: 'Roboto', sans-serif;
+  border: 0;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.356);
+  font-size: 18px;
+  color: cadetblue;
+  background: transparent;
+  padding: 0vh 1vh;
+}
+
+.updateid-container {
+  margin: 1vh;
+  padding: 1vh;
+}
+
+.updatecomments-container {
+  margin: 1vh;
+  padding: 1vh;
+}
+
+.updatecomments-container textarea {
+  margin: 1vh 0vh;
+  border-radius: 1vh;
+  font-family: 'Roboto',sans-serif;
+}
+
+.updatecomments-container textarea:hover {
+  transition: 0.1s;
+  border: 2px solid rgb(41, 187, 172);
+  background-color: rgba(164, 177, 177, 0.312);
+  border-radius: 1vh;
+}
+
+#updatebtn {
+border: solid rgba(0, 0, 0, 0.442) 2px;
+background-color: white;
+font-family: 'Roboto', sans-serif;
+font-size: 18px;
+padding: 1vh 3vh;
+border-radius: 10vh;
+box-shadow: 0 1vh 1vh grey;
+width: 200px;
+height: auto;
+margin-left: 30%;
+}
+
+#updatebtn span {
+display:block;
+color:rgb(102, 98, 98);
+}
+
+.fa-save {
+  color: cadetblue;
+}
+
+#updatebtn:hover .fa-save {
+color: white;
+}
+
+#updatebtn:hover span {
+  color: white;
+  }
+
+#updatebtn:hover {
+  border: solid white 2px;
+  background-color: rgb(41, 187, 172);
+  box-shadow: 0 1vh 2vh teal;
+  transition: 0.4s;
+  transform: translateY(-2px);
+  }
