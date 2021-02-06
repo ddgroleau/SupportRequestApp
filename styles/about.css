@@ -70,8 +70,9 @@ h1 {
 article {
     font-family: 'Roboto', sans-serif;
     grid-row: 3/5;
-    grid-column: 2/10;
+    grid-column: 1/10;
     line-height: 1.5rem;
+    margin-left: 3vh;
 }
 
 article p {
@@ -79,5 +80,15 @@ article p {
 }
 
 article h2 {
-    margin: 5vh 0vh 1vh 0vh;
+    margin: 2vh 0vh 3vh 0vh;
+}
+
+.intro {
+    border: solid rgba(128, 128, 128, 0.435) 2px;
+    border-radius: 1vh;
+    max-height: fit-content;
+    width: 800;
+    margin-top: 3vh;
+    padding: 2vh;
+    font-size: 14px;
 }

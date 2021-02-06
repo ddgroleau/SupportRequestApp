@@ -82,7 +82,7 @@ h1 {
     box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
     text-align: center;
     margin: 1vh 0vh 0vh 5vh;
-    width: 120%;
+    width: 110%;
     border: solid rgba(94, 92, 92, 0.192) 3px;
 }
 
@@ -101,7 +101,7 @@ h1 {
 
 #closedrequests {
     margin-left: 9vh;
-    width: 120%;
+    width: 110%;
     max-height:200px;
     display:block;
     overflow-y: scroll;
