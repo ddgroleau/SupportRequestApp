@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session = require("express-session");
 
 //Connection to MySQL Server/Databse
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: process.env.CLEARDB_HOST,
     user: process.env.CLEARDB_USERNAME,
     port: process.env.PORT || 3306,
@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     multipleStatements: true,
 });
 
-db.connect((err) =>{
+db.getConnection((err) =>{
 if (!err) {
     console.log("...Connected to Database!")
 } else{ 
