@@ -21,7 +21,7 @@ npm -v
 ```
 
 You will also need MySQL Server and Workbench, available at https://dev.mysql.com/downloads/. 
-First time with My SQL? Here is a link to installation and setup instructions: https://dev.mysql.com/doc/workbench/en/wb-installing.html.
+First time with MySQL? Here is a link to installation and setup instructions: https://dev.mysql.com/doc/workbench/en/wb-installing.html.
 Once you have MySQL Server and Workbench installed on your machine, run the below queries to get your Support Request Database up and running.
 ```
 CREATE DATABASE supportrequestapp;
