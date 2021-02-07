@@ -39,11 +39,11 @@ app.use(flash());
 
 // SESSION
 const options = {
-    host: 'localhost',
-    user: 'root',
+    host: process.env.CLEARDB_HOST,
+    user: process.env.CLEARDB_USERNAME,
     port: process.env.PORT || 3306,
-    password: process.env.MYSQL_PASSWORD,
-    database: 'supportrequestapp',
+    password: process.env.CLEARDB_PASSWORD,
+    database: process.env.CLEARDB_DATABASE,
     clearExpired: true,
     createDatabaseTable: true,
     charset: 'utf8mb4_bin',
