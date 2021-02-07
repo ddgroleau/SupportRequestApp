@@ -29,7 +29,7 @@ const about= require("./routes/about");
 // --- EXPRESS SETUP ---
 const app = express();
 const port = process.env.PORT || 3050
-app.listen(port, () => console.log("Server started at Port: 3050"));
+app.listen(port, () => console.log(`Server started at Port: ${port}`));
 app.use(express.static(__dirname));
 app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.json());
