@@ -46,12 +46,16 @@ newPasswordBtn.addEventListener("click", event => {
 });
 
 saveEmailBtn.addEventListener("click", event => {
+    if (!newEmailInput.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+        alert("Check new Email Address");
+    } else {
    console.log(`sending email changes to server`);
    newEmailLabel.style.visibility = "hidden";
    newEmailInput.style.visibility = "hidden";
     saveEmailBtn.style.visibility = "hidden";
     newEmailBtn.style.visibility = "visible";
     saveNewEmail(newEmailInput.value);
+    }
 });
 
 savePasswordBtn.addEventListener("click", event => {
@@ -86,7 +90,7 @@ document.getElementById("displayAlert").textContent = response.serverAlert;
 };
 
 async function saveNewEmail(newEmail) {
-    const changeEmail = { email: newEmail } 
+    const changeEmail = { email: newEmail }
     const updateEmailAPI = "/routes/currentUser/update/email";
     const request = await fetch(updateEmailAPI, {
     method: "POST",
