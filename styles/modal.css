@@ -138,7 +138,7 @@
   height: auto;
   width:85%;
   padding: 3vh 5vh;
-  margin: 3vh 0 0 10vh;
+  margin: 3vh 0 4vh 10vh;
   background-color:rgba(245, 245, 245, 0.559);
   border-radius: 2vh;
   box-shadow: 0 2vh 5vh cadetblue;
@@ -221,8 +221,8 @@ margin-top: 1vh;
 }
 
 textarea {
-  width: 800px;
-  height: 200px;
+  width: 320%;
+  height: 20vh;
   padding: 3vh;
   border: solid rgba(128, 128, 128, 0.356) 2px;
   border-radius: 2vh;

@@ -100,6 +100,7 @@ const listUsers = async () => {
     const request = await fetch("/routes/users");
     const users = await request.json();
     let def = document.createElement("option")
+    def.value ="default";
     def.textContent = "Choose a User";
     document.getElementById("assignedto").append(def);
   for (user in users) {

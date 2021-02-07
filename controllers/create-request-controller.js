@@ -28,13 +28,19 @@ exports.createRequest = async (request, response) => {
         assignedto: assignedTo,
         createdby: createdBy,
     };
+    if (newRequest.type == "default" || newRequest.category == "default" || newRequest.assignedto == "default") {
+        response.render("dashboard.ejs", {alertmsg: "Looks like there was an error. Please check your entries and try again."});
+        console.log("Form Entry Error")
+    } else {
         db.query('INSERT into supportrequests SET?', newRequest, async (err) => {
         if (err)  {
         response.render("dashboard.ejs", {alertmsg: "Looks like there was an error. Please check your entries and try again."});
         } else {
+            console.log(`Entry added to database: ${newRequest.id}`)
         response.redirect("/dashboard");
         }
         });
-    }
+    };
+};
 
 
