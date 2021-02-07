@@ -95,3 +95,9 @@ input:hover {
     transition: .3s;
     transform: translateY(-0.4vh)
 }
+
+#errmsg {
+    font-size: 2vh;
+    color: cadetblue;
+    margin: 1vh;
+}

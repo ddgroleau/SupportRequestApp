@@ -19,7 +19,7 @@ exports.authLogin = async (request, response) => {
         console.log("New Session Started.")
         response.redirect("/dashboard")
     } else {
-    response.render("login.ejs", {message:"Your Email Address or password is wrong"});
+    response.render("login.ejs", {message:"Your email address or password is wrong. Please try again"});
     }
 });
 };

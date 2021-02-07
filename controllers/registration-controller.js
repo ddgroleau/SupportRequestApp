@@ -37,13 +37,22 @@ exports.createUser = async (request,response) => {
         }  else if (result != "" && result[0].email == email) {
             response.render('register.ejs', {message: "This email is already in use."});
         } else {
-                // Inserts New User into Users
-                db.query('INSERT INTO users SET ?', profile, function(err) {
-                    if (err) throw err;
-                    console.log("Database Updated.")
-                    });
-            response.render("login.ejs");
-        }
-    }); 
-};
+            db.query(`SELECT * FROM users WHERE username = "${username}"`, function (err, result) {
+                if (err) throw err;
+                console.log(result);
+                    if (result != "" && result[0].username == username) {
+                        response.render('register.ejs', {message: "This username is already in use."});
+                    } else {
+                        // Inserts New User into Users
+                        db.query('INSERT INTO users SET ?', profile, function(err) {
+                            if (err) throw err;
+                            console.log("Database Updated.")
+                            });
+                            response.render("login.ejs");
+                     }
+                 }
+            )};    
+            
+        }); 
+    };
 };
