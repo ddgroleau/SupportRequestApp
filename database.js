@@ -5,10 +5,6 @@ const session = require("express-session");
 
 //Connection to MySQL Server/Databse
 const db = mysql.createPool({
-    connectionLimit : 1000,
-    connectTimeout  : 60 * 60 * 1000,
-    acquireTimeout  : 60 * 60 * 1000,
-    timeout         : 60 * 60 * 1000,
     host: process.env.CLEARDB_HOST,
     user: process.env.CLEARDB_USERNAME,
     port: process.env.PORT || 3306,
