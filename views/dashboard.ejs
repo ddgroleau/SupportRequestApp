@@ -53,7 +53,6 @@
             <div class="createbtn-container">
                 <button id="create" class="createbtn"><img src="/images/datebase-color-teal.png"><br>Create New Request</button>
                 <br>
-                <span><%=(typeof createmsg!='undefined')? createmsg:''%></span>
                 <br>
             </div>
         </div>
@@ -136,7 +135,6 @@
                             <input type="date" id="duedate" name="duedate" value="" min="2021-01-19" max="2099-12-31">
                         </div>
                         <br>
-            
             </form>
 
                 <div class="comments-container">
@@ -145,8 +143,9 @@
                 </div>
                     
                 <button form="createform" type="submit" id="submitNewReq"><span>Create!</span><img src="/images/database-circle-icon.png"></button>
-
-                    
+                <div id="alertmsg-container" class="alertmsg-container">
+                <span id="alertmsg"><%=(typeof alertmsg!='undefined')? alertmsg:''%></span>
+            </div>
                 </header>
         </div>
     

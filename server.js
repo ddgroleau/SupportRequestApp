@@ -35,6 +35,7 @@ app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(flash());
 
 // SESSION
 const options = {
@@ -81,6 +82,22 @@ app.use("/", createRequest);
 app.use("/", updateRequest);
 app.use("/", deleteRequest);
 app.use("/profile", profile);
+
+// Error Handling 
+app.use((request, response) => {
+    const error = new Error('There was an issue. Please try again');
+    error.status = 404;
+    response.redirect('/dashboard');
+});
+
+app.use((error, request, response) => {
+response.status(error.status || 500);
+response.json({
+    error: {
+        message: error.message
+    }
+});
+});
 
 
 

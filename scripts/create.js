@@ -92,7 +92,6 @@ function todaysDate() {
     };
     document.getElementById("creationdate").value = date;
     document.getElementById("duedate").value = date;
-    console.log(date);
     return date;
 }
 todaysDate();
@@ -100,6 +99,9 @@ todaysDate();
 const listUsers = async () => {
     const request = await fetch("/routes/users");
     const users = await request.json();
+    let def = document.createElement("option")
+    def.textContent = "Choose a User";
+    document.getElementById("assignedto").append(def);
   for (user in users) {
       let username = users[user].username;
       let option = document.createElement("option")
@@ -108,3 +110,11 @@ const listUsers = async () => {
   }
 };
 listUsers()
+
+function displayErr() {
+if (document.getElementById('alertmsg').textContent == 'Looks like there was an error. Please check your entries and try again.') {
+  createModal.style.display = "block";
+  document.getElementById("alertmsg-container").style.visibility = "visible";
+}
+};
+displayErr();

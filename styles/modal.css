@@ -145,6 +145,19 @@
   border: solid cadetblue 2px;
 }
 
+.alertmsg-container {
+  text-align: center;
+  font-size: 2vh;
+  border: solid black .25vh;
+  background-color: white;
+  width: 30%;
+  float: left;
+  position: absolute;
+  top: 10%;
+  color: crimson;
+  box-shadow: 0 0 1vh cadetblue;
+  visibility: hidden;
+}
 .type-container {
   width: 50%;
   display: inline-block;

@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const db = require("../database")
 const session = require('express-session');
+const flash = require('express-flash')
 
 exports.createRequest = async (request, response) => {
     const data = await request.body;
@@ -27,14 +28,13 @@ exports.createRequest = async (request, response) => {
         assignedto: assignedTo,
         createdby: createdBy,
     };
-    try {
-    db.query('INSERT into supportrequests SET?', newRequest,(err) => {
-        if (err) throw err,
-        console.log("Database Updated.")
-        });
+        db.query('INSERT into supportrequests SET?', newRequest, async (err) => {
+        if (err)  {
+        response.render("dashboard.ejs", {alertmsg: "Looks like there was an error. Please check your entries and try again."});
+        } else {
         response.redirect("/dashboard");
-    } catch (err) {
-        console.log(err);
-        response.render('dashboard.ejs', { createmsg: `There was an error with your request. Please try again.`});
-    };  
-};
+        }
+        });
+    }
+
+
