@@ -8,11 +8,28 @@ exports.updateComments = async (request, response) => {
     const id = data.updateid;
     const comments = request.body.updatecomments;
     db.query(`UPDATE supportrequests SET comments = "${comments}" WHERE id = "${id}"`, (err, result) => {
-    if (err) throw err;
+    if (err) { 
+        response.redirect("/dashboard")
+    } else {
     console.log("Update Success");
-    });
     response.redirect("/dashboard")
-};
+    };
+    });
+    };
+
+    exports.updateMyRequest = async (request, response) => {
+        const data = await request.body
+        const id = data.updateid;
+        const comments = request.body.updatecomments;
+        db.query(`UPDATE supportrequests SET comments = "${comments}" WHERE id = "${id}"`, (err, result) => {
+        if (err) { 
+            response.redirect("/profile/requests")
+        } else {
+        console.log("Update Success");
+        response.redirect("/profile/requests")
+        };
+        });
+        };
 
 exports.updateStatusResolved = async (request, response) => {
     console.log(request.body);

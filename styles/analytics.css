@@ -42,7 +42,7 @@
     background-color: rgba(94, 92, 92, 0.059);
     border: 0;
     font-family: roboto, sans-serif;
-    font-size: 22px;
+    font-size: 2.6vh;
     width: auto;
     height: max-content;
     padding: 1vh 3%;
@@ -70,27 +70,27 @@ h1 {
 }
 
 .chart1 {
-    width:400px;
+    width:50vh;
     height: auto;
     align-self: center;
     justify-self: center;
-    margin: 5vh 4vh;
+    margin: 3vh 4vh;
     }
 
 .chart2 {
-    width:400px;
+    width:50vh;
     height: auto;
     align-self: center;
     justify-self: center;
-    margin: 5vh 4vh;
+    margin: 3vh 4vh;
     }
 
 .chart3 {
-width:400px;
+    width:50vh;
 height: auto;
 align-self: center;
 justify-self: center;
-margin: 5vh 4vh;
+margin: 3vh 4vh;
 
 }
 

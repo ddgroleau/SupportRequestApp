@@ -345,6 +345,7 @@ padding: 3vh;
   margin: 1vh 0vh;
   border-radius: 1vh;
   font-family: 'Roboto',sans-serif;
+  width: 80% !important;
 }
 
 .updatecomments-container textarea:hover {

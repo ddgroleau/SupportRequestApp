@@ -130,7 +130,7 @@ const toolBox = async () => {
          document.getElementById(`resolve${id}`).addEventListener("click", async () => {
                 const resolveID = { id: id };
                 console.log(`updating status of ${resolveID.id}...`);
-                const request = await fetch("/update/status:resolved", {
+                const request = await fetch("/update/status/resolved", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -138,6 +138,7 @@ const toolBox = async () => {
                     body: JSON.stringify(resolveID)
                 });
                 const response = await request.text();
+                console.log(response);
                 if (response == "resolved") {
                     location.reload();
                 };

@@ -21,7 +21,7 @@
             <div class="navbar">
                     <a href="/dashboard"><button>Home</button></a>
                     <a href="/about"><button class="navbtn">About</button></a>
-                    <a href=""><button >My Requests</button></a>
+                    <a href="/profile/requests"><button >My Requests</button></a>
                     <a href="/profile/analytics"><button >My Analytics</button></a>
                     <button class="navbtn" id="searchRequest">Request Search</button>
                     <a href="/profile"><button class="navbtn">Update Profile</button></a>
@@ -160,7 +160,7 @@
               
             <h3>Update Support Request</h3>
               
-              <form method="POST" action="/update/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
+              <form method="POST" action="/update/home/:comments?_method=PUT" class="createForm" id="updateform" enctype="application/x-www-form-urlencoded">
                 
                 <input type="hidden" name="_method" value="PUT">
                 
