@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>How-To</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <title>About</title>
 </head>
 <body>
     <div class="dash-parent-container">
@@ -32,15 +34,75 @@
 <article>
 
     <div class="intro">
-        <h2>The Support Request Application</h2>
+        <h2>Overview</h2>
    <p>Managing requests that flow into your email inbox can be difficult at a high volume. 
        Project requirements or important events can be lost or forgotten as the emails pile up.
        This project was designed to create an environment in which co-workers and collaborators could request support, 
        organize project requirements, and complete tasks together in a visual manner, 
-       without having to manage hundreds of emails in their inbox. This application allows the user to create and log into a profile. 
-       Once inside the application, the user has the ability to build a "Support Request" - this is a simple form in which the user 
-    can input the type of support they need (a new project, a sub-task of that project, or just a standard request). They can provide a summary for the request,
-assign it to another user, and even provide a date that they need the request completed-by.</p>
+       without having to manage hundreds of emails in their inbox. </p>
+       <h2>Getting Started</h2>
+       <p>After creating a new account and logging in for the first time, you will be directed to the home page. 
+           This page will display all of the <strong>Open</strong> requests currently assigned to you. Let's talk about what this means by discussing two key terms:</p>
+        <div class="options">
+           <ul>
+          <li><strong>Open</strong> - An open request has a current status of "Pending", 
+            which indicates that the request has not been fulfilled by the assigned user.</li>
+          <li><strong>Closed</strong> - A closed request has a current status of "Resolved" or Rejected"; Resolved requests are those requests in which the 
+            assigned user has fulfilled the requirements of the request. 
+            A "Rejected" request is a request in which the assigned user indicated that they could not fulfill the requirements of the request.</li>
+        </ul>
+    </div>
+    <p>When a user assigns you a request, or you create a request, you will be able to view or update its cooments. 
+        For those requests assigned to you, you have the ability to <strong>Complete</strong> the request, or <strong>Reject</strong> it. 
+        You also have the option to <strong>Delete</strong> requests that you have created previously, as long as they are still in a "Pending" Status.
+         You can access these abilities by using the "Tools" in the right-most column of the request table. Let's walk through the tools available to you:</p>
+        <div class="options">
+            <ul>
+                <li><i class="fas fa-check fa-lg"></i> - The "Complete" button. This tool allows you to change the status of a request from "Pending" to "Resolved".
+                It indicates that you have completed all of the request requirements.</li>
+                <li><i class="fas fa-tools fa-lg"></i> - The "Update" button. This tool allows you to add, change, or remove comments on a request. You can 
+                use comments to keep the involved parties informed about your progress in fulfilling the request.</li>
+                <li><i class="fas fa-skull fa-lg"></i> - The "Reject" button. Were you assigned a request that you cannot fulfill? Is there a mistake on the request? 
+                You can choose to reject a request that is not correct or manageable.</li>
+                <li><i class="fas fa-trash-alt fa-lg"></i> - The "Delete" button. This tool allows you to delete requests that you have created, 
+                    as long as they are still "Pending".</li>
+             </ul>
+     </div>
+     <h2>Elements of a Support Request</h2>
+     <div class="options">
+        <ul>
+          <li><strong>Request ID</strong> - This is a number unique to your request - this number will never be duplicated in the database.</li>
+          <li><strong>Type</strong> - Requests can be Standard Requests, Projects, or Project Subtasks. 
+            Note that Project Subtask request ID numbers will be a non-integer (decimal),
+        indicating that they are a child of the type: "project" parent-request.</li>
+          <li><strong>Category</strong> - This is the catgeory the request falls into, currently, the defined categories include Invoice, Purchase Order, Production, Warehouse,
+        Sales Order, Quotes, and Reports. These categories were originally defined for a manufacturer or distributer, but can be tailored to fit any need.</li>
+          <li><strong>Creation Date</strong> - The date the request was created.</li>
+          <li><strong>Request Summary</strong> - The title or synopsis of the request.</li>
+          <li><strong>Assigned To</strong> - The user assigned to fulfilling the request.</li>
+          <li><strong>Created By</strong> - The user who created the request.</li>
+          <li><strong>Status</strong> - Pending, Resolved, or Rejected as defined above.</li>
+          <li><strong>Comments</strong> - The current or last comments applied to the request by the assignee or creator.</li>
+
+         </ul>
+ </div>
+    <h2>Features</h2>
+    <p>Apart from allowing you to create, update, delete, and view your requests, the Support Request Application provides users with personalized
+        <strong>Analytics</strong>.
+        <br>
+        <div class="image"><img src="../images/analytics-screen.png">
+            <span>This allows the user to analyze their requests over time, compare the number of requests they've created against how many they've been assigned,
+            and identify the number of requests due in the next five days.</span>
+        </div>
+    </p>
+    <br>
+    <p>The Support Request Application also allows the user to search for requests, via the "Request Search" navigation bar option. With this, the user can search by
+        the username of the assingee or creator, and can also search by the Request ID. This gives users visibility of other users assigned tasks, and also gives them
+        the capability to view any requests stored in the database. Additionally, the user has the ability to update their profile with the "Update Profile" navigation
+        bar option.
+    </p>
+
+
 </article>
 
    
