@@ -41,7 +41,7 @@ app.use(flash());
 const options = {
     host: process.env.CLEARDB_HOST,
     user: process.env.CLEARDB_USERNAME,
-    port: process.env.PORT || 3306,
+    
     password: process.env.CLEARDB_PASSWORD,
     database: process.env.CLEARDB_DATABASE,
     clearExpired: true,
