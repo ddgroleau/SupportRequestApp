@@ -41,7 +41,6 @@ app.use(flash());
 const options = {
     host: process.env.CLEARDB_HOST,
     user: process.env.CLEARDB_USERNAME,
-    
     password: process.env.CLEARDB_PASSWORD,
     database: process.env.CLEARDB_DATABASE,
     clearExpired: true,

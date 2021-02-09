@@ -22,7 +22,7 @@ body {
     background-color:white;
     align-content: center;
     justify-content: center;
-    width: 40%;
+   width:fit-content;
     height: auto;
     text-align: center;
     border:solid rgb(41, 187, 172) 1vh;
@@ -34,6 +34,7 @@ body {
 
 .login-container-icon {
     max-height: 30vh;
+    height: 30vh;
     width:auto;
     padding: 2vh 0vh 0vh 0vh;
 }
