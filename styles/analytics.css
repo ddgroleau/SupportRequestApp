@@ -63,10 +63,10 @@ h1 {
     grid-column: 1/3;
     grid-row: 1/2;
     align-self: center;
-    font-family: roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 220%;
     justify-self: flex-end;
-    margin-right: 25%;
+    margin-right: 50%;
 }
 
 .chart1 {

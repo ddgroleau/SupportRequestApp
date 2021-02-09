@@ -63,8 +63,9 @@ h1 {
     grid-column: 3/12;
     grid-row: 1/2;
     align-self: center;
-    font-family: roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 220%;
+    font-weight: normal;
 }
 
 article {
