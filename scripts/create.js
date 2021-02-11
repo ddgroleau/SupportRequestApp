@@ -38,7 +38,7 @@ document.getElementById("type").addEventListener("change", event => {
       projectid.style.visibility = "hidden";
       if (response.length > 0) {
       let lastID = parseFloat(response[response.length-1].id);
-      id.value = lastID + 1
+      id.value = Math.floor(lastID + 1);
       } else {
         id.value = 1001;
       }
