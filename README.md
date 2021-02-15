@@ -23,9 +23,7 @@ npm -v
 You will also need MySQL Server and Workbench, available at https://dev.mysql.com/downloads/. 
 First time with MySQL? Here is a link to installation and setup instructions: https://dev.mysql.com/doc/workbench/en/wb-installing.html.
 Once you have MySQL Server and Workbench installed on your machine, run the below queries to get your Support Request Database up and running.
-```
-CREATE DATABASE supportrequestapp;
-```
+
 ```
 CREATE TABLE `supportrequestapp`.`supportrequests` (id VARCHAR(45) PRIMARY KEY, type VARCHAR(45) NOT NULL, category VARCHAR(45) NOT NULL, 
 creationdate DATE NOT NULL, requestsummary VARCHAR(200) NOT NULL, duedate DATE NOT NULL, 
@@ -41,7 +39,7 @@ email VARCHAR(100) NOT NULL, password VARCHAR(100) NOT NULL
 
 ## Deployment
 
-Planned deployment via one of the following: Heroku/Azure/Glitch/repl.it
+Deployed on Heroku at https://support-request-application.herokuapp.com/
 
 ## Built With
 
@@ -49,7 +47,6 @@ Planned deployment via one of the following: Heroku/Azure/Glitch/repl.it
 * Node.js, Express, SQL 
 * MySQL for Database/Database Management
 * Bcrypt and Express-Session for log-on, authentication and password hashing
-
 
 ## Authors
 
